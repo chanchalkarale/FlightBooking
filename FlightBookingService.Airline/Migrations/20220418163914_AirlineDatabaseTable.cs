@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FlightBookingService.Airline.Migrations
 {
-    public partial class AirlineFlightDetails : Migration
+    public partial class AirlineDatabaseTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

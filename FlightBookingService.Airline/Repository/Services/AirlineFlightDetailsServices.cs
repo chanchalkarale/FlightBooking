@@ -1,4 +1,5 @@
 ﻿using FlightBookingService.Airline.DTO.Request;
+using FlightBookingService.Airline.DTO.Response;
 using FlightBookingService.Airline.Models;
 using FlightBookingService.Airline.Repository.Interface;
 using FlightBookingService.User.DataContext;
@@ -70,6 +71,35 @@ namespace FlightBookingService.Airline.Repository.Services
 
             await _airlineServiceContext.SaveChangesAsync();
             return result;
+        }
+
+        public async Task<AirlineFlightDetailsResponseList> SearchFlight(string search)
+        {
+             
+
+        
+            var searchList = await _airlineServiceContext.AirlineFlightDetails.Where(d => d.Airline.Contains(search) ||
+                                                       d.FlightNumber.ToString().Contains(search) ||
+                                                       d.ToPlaceName.Contains(search) ||
+                                                       d.FromPlaceName.Contains(search)).Select(p=> new AirlineFlightDetailsResponse { 
+                                                          FlightNumber=p.FlightNumber,
+                                                          Airline=p.Airline,
+                                                          FromPlaceName=p.FromPlaceName,
+                                                          ToPlaceName=p.ToPlaceName,
+                                                          FlightStartDateTime=p.FlightStartDateTime,
+                                                          FlightToDateTime=p.FlightToDateTime,
+                                                          TotalBusinessSeats=p.TotalBusinessSeats,
+                                                          TotalNonBusinessSeats=p.TotalNonBusinessSeats,
+                                                          TicketCost=p.TicketCost,
+                                                          FlightSeatRow=p.FlightSeatRow,
+                                                          Meal=p.Meal
+                                                       }).ToListAsync();
+
+            var airlineFlightDetailsResponseList = new AirlineFlightDetailsResponseList
+            {
+                airlineFlightDetailsResponsesList = searchList
+            };
+            return airlineFlightDetailsResponseList;
         }
     }
 }

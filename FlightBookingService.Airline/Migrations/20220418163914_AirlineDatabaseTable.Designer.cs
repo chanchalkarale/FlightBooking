@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlightBookingService.Airline.Migrations
 {
     [DbContext(typeof(AirlineServiceContext))]
-    [Migration("20220418125402_AirlineFlightDetails")]
-    partial class AirlineFlightDetails
+    [Migration("20220418163914_AirlineDatabaseTable")]
+    partial class AirlineDatabaseTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
