@@ -1,0 +1,87 @@
+{
+  "ReRoutes": [
+    {
+
+      "DownstreamPathTemplate": "/api/Airline/Inventory",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "UpstreamPathTemplate": "/Airline/Inventory",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/Airline/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "UpstreamPathTemplate": "/Airline/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/Registration/register",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "57768"
+        }
+      ],
+      "UpstreamPathTemplate": "/Registration/register",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "SwaggerKey": "user"
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/Registration/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "57768"
+        }
+      ],
+      "UpstreamPathTemplate": "/Registration/login",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "SwaggerKey": "user"
+
+    }
+
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "airlines",
+      "Config": [
+        {
+          "Name": "Airline API",
+          "Version": "v1",
+          "Url": "http://localhost:38221/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "user",
+      "Config": [
+        {
+          "Name": "User API",
+          "Version": "v1",
+          "Url": "http://localhost:57768/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
+}
