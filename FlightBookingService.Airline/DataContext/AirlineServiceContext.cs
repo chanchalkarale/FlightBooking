@@ -16,5 +16,7 @@ namespace FlightBookingService.User.DataContext
         }
 
         public DbSet<AirlineFlightDetails> AirlineFlightDetails { get; set; }
+        public DbSet<FlightBookingDetails> FlightBookingDetails { get; set; }
+        public DbSet<UserBookingDetails> UserBookingDetails { get; set; }
     }
 }

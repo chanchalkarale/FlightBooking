@@ -4,14 +4,16 @@ using FlightBookingService.User.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FlightBookingService.Airline.Migrations
 {
     [DbContext(typeof(AirlineServiceContext))]
-    partial class AirlineServiceContextModelSnapshot : ModelSnapshot
+    [Migration("20220419092113_FlightBookingDetails_And_UserBookingDetails")]
+    partial class FlightBookingDetails_And_UserBookingDetails
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

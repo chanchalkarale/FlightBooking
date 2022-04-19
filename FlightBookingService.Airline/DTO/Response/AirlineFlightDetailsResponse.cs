@@ -8,6 +8,8 @@ namespace FlightBookingService.Airline.DTO.Response
 {
     public class AirlineFlightDetailsResponse
     {
+        public int FlightId { get; set; }
+
         public string FlightNumber { get; set; }
 
         public string Airline { get; set; }

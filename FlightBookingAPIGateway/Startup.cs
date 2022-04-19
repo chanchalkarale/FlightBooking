@@ -39,7 +39,7 @@ namespace FlightBookingAPIGateway
                 app.UseDeveloperExceptionPage();
             }
             app.UseSwaggerForOcelotUI(Configuration);
-            app.UseRouting();
+            app.UseRouting(); 
 
             app.UseEndpoints(endpoints =>
             {
