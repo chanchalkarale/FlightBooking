@@ -1,4 +1,5 @@
 ﻿using FlightBookingService.Airline.DTO.Request;
+using FlightBookingService.Airline.DTO.Response;
 using FlightBookingService.Airline.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -44,10 +45,10 @@ namespace FlightBookingService.Airline.Controllers
         }
 
         // GET api/<AirlineController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{search}")]
+        public async Task<AirlineFlightDetailsResponseList> Search(string search)
         {
-            return "value";
+            return await _airlineFlightDetailsServices.SearchFlight(search);
         }
 
         // POST api/<AirlineController>

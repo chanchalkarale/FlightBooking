@@ -27,6 +27,6 @@ namespace FlightBookingService.Airline.DTO.Response
 
         public int FlightSeatRow { get; set; }
 
-        public MealEnum Meal { get; set; }
+        public string Meal { get; set; }
     }
 }

@@ -79,7 +79,7 @@ namespace FlightBookingService.Airline.Repository.Services
 
         
             var searchList = await _airlineServiceContext.AirlineFlightDetails.Where(d => d.Airline.Contains(search) ||
-                                                       d.FlightNumber.ToString().Contains(search) ||
+                                                       d.FlightNumber.Contains(search) ||
                                                        d.ToPlaceName.Contains(search) ||
                                                        d.FromPlaceName.Contains(search)).Select(p=> new AirlineFlightDetailsResponse { 
                                                           FlightNumber=p.FlightNumber,
@@ -92,7 +92,7 @@ namespace FlightBookingService.Airline.Repository.Services
                                                           TotalNonBusinessSeats=p.TotalNonBusinessSeats,
                                                           TicketCost=p.TicketCost,
                                                           FlightSeatRow=p.FlightSeatRow,
-                                                          Meal=p.Meal
+                                                          Meal= ((MealEnum)p.Meal).ToString()
                                                        }).ToListAsync();
 
             var airlineFlightDetailsResponseList = new AirlineFlightDetailsResponseList
