@@ -28,12 +28,7 @@ namespace FlightBookingService.Airline.Controllers
          
         #endregion
 
-        // GET: api/<AirlineController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+   
 
         [HttpPost, ActionName("Inventory")]
         [HttpPost]
@@ -45,10 +40,10 @@ namespace FlightBookingService.Airline.Controllers
         }
 
         // GET api/<AirlineController>/5
-        [HttpGet("{search}")]
-        public async Task<AirlineFlightDetailsResponseList> Search(string search)
+        [HttpGet("{searchText}"),ActionName("Search")]
+        public async Task<AirlineFlightDetailsResponseList> Search(string searchText)
         {
-            return await _airlineFlightDetailsServices.SearchFlight(search);
+            return await _airlineFlightDetailsServices.SearchFlight(searchText);
         }
 
 
@@ -63,23 +58,12 @@ namespace FlightBookingService.Airline.Controllers
 
 
         // GET api/<AirlineController>/5
-        [HttpGet("{pnr},{userId}")]
-        public async Task<BookedTicketDetailsResponseList> GetBookedTicketDetails(string pnr,int userId)
+        [HttpGet("{pnr}")]
+        public async Task<BookedTicketDetailsResponseList> GetBookedTicketDetails(string pnr)
         {
-            return await _airlineFlightDetailsServices.GetBookedTicketDetails(pnr,userId);
+            return await _airlineFlightDetailsServices.GetBookedTicketDetails(pnr);
         }
-
-        // POST api/<AirlineController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<AirlineController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+         
 
         // DELETE api/<AirlineController>/5
         [HttpDelete("{pnr}")]

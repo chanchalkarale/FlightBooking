@@ -17,6 +17,66 @@
     },
     {
 
+      "DownstreamPathTemplate": "/api/Airline/Search/{searchText}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "UpstreamPathTemplate": "/Airline/Search/{searchText}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/Airline/Booking",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "UpstreamPathTemplate": "/Airline/Booking",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/Airline/GetBookedTicketDetails/{pnr}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "UpstreamPathTemplate": "/Airline/GetBookedDeatils/{pnr}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/Airline/CancelTicket/{pnr}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "UpstreamPathTemplate": "/Airline/CancelTicket/{pnr}",
+      "UpstreamHttpMethod": [ "DELETE"],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
       "DownstreamPathTemplate": "/api/Airline/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [

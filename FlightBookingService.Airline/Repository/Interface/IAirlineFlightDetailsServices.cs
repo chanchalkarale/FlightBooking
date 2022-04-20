@@ -21,6 +21,6 @@ namespace FlightBookingService.Airline.Repository.Interface
         /// <returns></returns>
         Task<bool> BookFlightTicket(FlightBookingDetailsRequest flightBookingDetailsRequest);
 
-        Task<BookedTicketDetailsResponseList> GetBookedTicketDetails(string pnr, int userId);
+        Task<BookedTicketDetailsResponseList> GetBookedTicketDetails(string pnr);
     }
 }

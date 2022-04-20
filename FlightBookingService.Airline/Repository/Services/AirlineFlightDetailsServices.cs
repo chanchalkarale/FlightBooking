@@ -52,6 +52,7 @@ namespace FlightBookingService.Airline.Repository.Services
                   Flag=0
                 };
                 await _airlineServiceContext.AddAsync(airlineFlightDetails);
+                result = true;
             }
             else
             {
@@ -66,7 +67,9 @@ namespace FlightBookingService.Airline.Repository.Services
                 airlineDetails.FlightSeatRow = airlineFlightDetailsRequest.FlightSeatRow;
                 airlineDetails.Meal = airlineFlightDetailsRequest.Meal;
                 airlineDetails.CreateDate = DateTime.Now;
-                airlineDetails.Flag = 0; 
+                airlineDetails.Flag = 0;
+
+                result = true;
             }
 
             await _airlineServiceContext.SaveChangesAsync();
@@ -192,7 +195,7 @@ namespace FlightBookingService.Airline.Repository.Services
             return result;
         }
 
-        public async Task<BookedTicketDetailsResponseList> GetBookedTicketDetails(string pnr,int userId)
+        public async Task<BookedTicketDetailsResponseList> GetBookedTicketDetails(string pnr)
         {
    //         select AFD.FlightNumber,AFD.Airline,UBD.UserName,UBD.UserEmail,UBD.Age,UBD.Gender,UBD.Meal
    // ,UBD.SeatNumber,AFD.FromPlaceName,AFD.ToPlaceName,AFD.FlightStartDateTime,AFD.FlightToDateTime,AFD.TicketCost
@@ -211,7 +214,7 @@ namespace FlightBookingService.Airline.Repository.Services
                                        on fd.FlightBookingId equals ud.FlightBookingId
                                        join ad in _airlineServiceContext.AirlineFlightDetails
                                        on fd.FlightId equals ad.Id
-                                       where fd.PNR == pnr && fd.UserId == userId
+                                       where fd.PNR == pnr //&& fd.UserId == userId
                                        select new BookedTicketDetailsResponse()
                                        {
                                            FlightNumber = ad.FlightNumber,
