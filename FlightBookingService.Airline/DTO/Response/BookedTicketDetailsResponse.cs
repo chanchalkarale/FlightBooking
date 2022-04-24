@@ -9,7 +9,7 @@ namespace FlightBookingService.Airline.DTO.Response
     {
         public string FlightNumber { get; set; }
 
-        public string Airline { get; set; }
+        public string AirlineName { get; set; }
 
         public string FromPlace { get; set; }
 
@@ -21,7 +21,9 @@ namespace FlightBookingService.Airline.DTO.Response
 
         public int SeatNo { get; set; }
 
-        public decimal TicketCost { get; set; }
+        public decimal BusTicketCost { get; set; }
+
+        public decimal NonBusTicketCost { get; set; }
 
         public string Name { get; set; }
 

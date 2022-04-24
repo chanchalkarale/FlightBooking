@@ -18,9 +18,9 @@ namespace FlightBookingService.Airline.DTO.Request
 
         public double TwoWayCost { get; set; } 
 
-        public int TotalBookSeats { get; set; }
+        //public int TotalBookSeats { get; set; }
 
-        public string PNR { get; set; }
+        //public string PNR { get; set; }
 
         public List<UserBookingDetailsRequest> userBookingDetailsRequestList { get; set; }
 

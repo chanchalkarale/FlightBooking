@@ -19,14 +19,13 @@ namespace FlightBookingService.Airline.Models
 
         public double OneWayCost { get; set; }
 
-        public double TwoWayCost { get; set; }
-
+        public double TwoWayCost { get; set; } 
 
         public int TotalBookSeats { get; set; } 
 
         public string PNR { get; set; }
 
         public DateTime CreateDate { get; set; }
-        public int Flag { get; set; }
+        public int IsDelete { get; set; }
     }
 }

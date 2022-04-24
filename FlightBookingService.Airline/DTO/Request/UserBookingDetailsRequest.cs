@@ -21,6 +21,7 @@ namespace FlightBookingService.Airline.DTO.Request
         public int SeatNumber { get; set; }
 
         public DateTime CreateDate { get; set; }
+
         public int Flag { get; set; }
     }
 }

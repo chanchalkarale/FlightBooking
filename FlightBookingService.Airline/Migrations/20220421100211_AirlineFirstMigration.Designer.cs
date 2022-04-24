@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FlightBookingService.Airline.Migrations
 {
     [DbContext(typeof(AirlineServiceContext))]
-    [Migration("20220419092113_FlightBookingDetails_And_UserBookingDetails")]
-    partial class FlightBookingDetails_And_UserBookingDetails
+    [Migration("20220421100211_AirlineFirstMigration")]
+    partial class AirlineFirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,6 +21,30 @@ namespace FlightBookingService.Airline.Migrations
                 .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("FlightBookingService.Airline.Models.AirlineDetails", b =>
+                {
+                    b.Property<int>("AirlineId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AirlineNmae")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IsDelete")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("AirlineId");
+
+                    b.ToTable("AirlineDetails");
+                });
+
             modelBuilder.Entity("FlightBookingService.Airline.Models.AirlineFlightDetails", b =>
                 {
                     b.Property<int>("Id")
@@ -28,14 +52,14 @@ namespace FlightBookingService.Airline.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Airline")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AirlineId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("BusTicketCost")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("Flag")
-                        .HasColumnType("int");
 
                     b.Property<string>("FlightNumber")
                         .HasColumnType("nvarchar(max)");
@@ -52,10 +76,13 @@ namespace FlightBookingService.Airline.Migrations
                     b.Property<string>("FromPlaceName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("IsDelete")
+                        .HasColumnType("int");
+
                     b.Property<int>("Meal")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("TicketCost")
+                    b.Property<decimal>("NonBusTicketCost")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("ToPlaceName")
@@ -68,6 +95,8 @@ namespace FlightBookingService.Airline.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AirlineId");
 
                     b.ToTable("AirlineFlightDetails");
                 });
@@ -82,10 +111,10 @@ namespace FlightBookingService.Airline.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Flag")
+                    b.Property<int>("FlightId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FlightId")
+                    b.Property<int>("IsDelete")
                         .HasColumnType("int");
 
                     b.Property<int>("Journey")
@@ -118,6 +147,9 @@ namespace FlightBookingService.Airline.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
@@ -145,6 +177,17 @@ namespace FlightBookingService.Airline.Migrations
                     b.HasKey("UserBookingId");
 
                     b.ToTable("UserBookingDetails");
+                });
+
+            modelBuilder.Entity("FlightBookingService.Airline.Models.AirlineFlightDetails", b =>
+                {
+                    b.HasOne("FlightBookingService.Airline.Models.AirlineDetails", "Airlines")
+                        .WithMany()
+                        .HasForeignKey("AirlineId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Airlines");
                 });
 #pragma warning restore 612, 618
         }

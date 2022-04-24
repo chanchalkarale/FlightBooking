@@ -2,6 +2,21 @@
   "ReRoutes": [
     {
 
+      "DownstreamPathTemplate": "/api/Airline/register",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "UpstreamPathTemplate": "/Airline/register",
+      "UpstreamHttpMethod": [ "POST" ],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
       "DownstreamPathTemplate": "/api/Airline/Inventory",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -12,6 +27,21 @@
       ],
       "UpstreamPathTemplate": "/Airline/Inventory",
       "UpstreamHttpMethod": [ "GET", "POST" ],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/Airline/BlockUnblockAirline",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "UpstreamPathTemplate": "/Airline/BlockUnblockAirline",
+      "UpstreamHttpMethod": [ "PATCH" ],
       "SwaggerKey": "airlines"
 
     },
@@ -71,7 +101,22 @@
         }
       ],
       "UpstreamPathTemplate": "/Airline/CancelTicket/{pnr}",
-      "UpstreamHttpMethod": [ "DELETE"],
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/Airline/GetBookedTicketHistory/{emailId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "UpstreamPathTemplate": "/Airline/GetBookedHistory/{emailId}",
+      "UpstreamHttpMethod": [ "GET" ],
       "SwaggerKey": "airlines"
 
     },

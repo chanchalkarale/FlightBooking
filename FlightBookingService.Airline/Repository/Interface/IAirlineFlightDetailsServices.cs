@@ -9,6 +9,7 @@ namespace FlightBookingService.Airline.Repository.Interface
 {
     public interface IAirlineFlightDetailsServices
     {
+        Task<bool> AddAirlineDetails(AirlineDetailsRequest airlineDetailsRequest);
         Task<bool> AddAirlineSchedule(AirlineFlightDetailsRequest airlineFlightDetailsRequest);
         
 
@@ -22,5 +23,17 @@ namespace FlightBookingService.Airline.Repository.Interface
         Task<bool> BookFlightTicket(FlightBookingDetailsRequest flightBookingDetailsRequest);
 
         Task<BookedTicketDetailsResponseList> GetBookedTicketDetails(string pnr);
+
+        Task<bool> CancleBookTicket(string pnr);
+
+        Task<BookedTicketDetailsResponseList> GetBookedTicketHistory(string emailId);
+
+        /// <summary>
+        /// Update airline : Blocked airline status=1 and unblock=0
+        /// </summary>
+        /// <param name="airlineId"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        Task<bool> UpdateAirline(int airlineId,int status);
     }
 }

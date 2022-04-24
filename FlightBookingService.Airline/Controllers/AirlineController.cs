@@ -25,14 +25,28 @@ namespace FlightBookingService.Airline.Controllers
         {
             _airlineFlightDetailsServices = airlineFlightDetailsServices ?? throw new ArgumentNullException(nameof(airlineFlightDetailsServices));
         }
-         
+
         #endregion
 
-   
+        [HttpPost, ActionName("register")] 
+        public async Task<bool> AddAirline([FromBody] AirlineDetailsRequest airlineDetailsRequest)
+        {
+            var result = await _airlineFlightDetailsServices.AddAirlineDetails(airlineDetailsRequest);
+
+            return result;
+        }
+
+        [HttpPatch, ActionName("BlockUnblockAirline")]
+        public async Task<bool> UpdateAirline(int airlineId,int status)
+        {
+            var result = await _airlineFlightDetailsServices.UpdateAirline(airlineId,status); 
+            return result;
+        }
+
 
         [HttpPost, ActionName("Inventory")]
         [HttpPost]
-        public async Task<bool> Register([FromBody] AirlineFlightDetailsRequest airlineFlightDetailsRequest)
+        public async Task<bool> Inventory([FromBody] AirlineFlightDetailsRequest airlineFlightDetailsRequest)
         {
             var result = await _airlineFlightDetailsServices.AddAirlineSchedule(airlineFlightDetailsRequest);
 
@@ -70,8 +84,14 @@ namespace FlightBookingService.Airline.Controllers
         public async Task<bool> CancelTicket(string pnr)
         {
             var result = false;
-
+            result = await _airlineFlightDetailsServices.CancleBookTicket(pnr);
             return result;
+        }
+
+        [HttpGet("{emailId}")]
+        public async Task<BookedTicketDetailsResponseList> GetBookedTicketHistory(string emailId)
+        {
+            return await _airlineFlightDetailsServices.GetBookedTicketHistory(emailId);
         }
     }
 }

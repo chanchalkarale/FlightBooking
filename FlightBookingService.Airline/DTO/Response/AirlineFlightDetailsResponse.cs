@@ -25,7 +25,8 @@ namespace FlightBookingService.Airline.DTO.Response
 
         public int TotalNonBusinessSeats { get; set; }
 
-        public decimal TicketCost { get; set; }
+        public decimal BusTicketCost { get; set; }
+        public decimal NonBusTicketCost { get; set; }
 
         public int FlightSeatRow { get; set; }
 
