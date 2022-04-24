@@ -19,7 +19,7 @@ namespace FlightBookingService.Airline.Controllers
         private readonly IAirlineFlightDetailsServices _airlineFlightDetailsServices;
         #endregion
 
-        #region Controller
+        #region Constructor
 
         public AirlineController(IAirlineFlightDetailsServices airlineFlightDetailsServices)
         {
