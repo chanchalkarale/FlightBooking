@@ -137,6 +137,37 @@
     },
     {
 
+      "DownstreamPathTemplate": "/api/Airline/AddDiscount",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "UpstreamPathTemplate": "/Airline/AddDiscount",
+      "UpstreamHttpMethod": [ "POST" ],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/Airline/GetAllDiscount",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "UpstreamPathTemplate": "/Airline/GetAllDiscount",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "airlines"
+
+    },
+
+    {
+
       "DownstreamPathTemplate": "/api/Registration/register",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [

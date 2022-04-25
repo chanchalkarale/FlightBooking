@@ -144,7 +144,10 @@ namespace FlightBookingService.Airline.Repository.Services
                                                       }).Where(d => d.status==0 &&d.airlineNmae.Contains(search) ||
                                                        d.FlightNumber.Contains(search) ||
                                                        d.ToPlaceName.Contains(search) ||
-                                                       d.FromPlaceName.Contains(search)).Select(p=> new AirlineFlightDetailsResponse { 
+                                                       d.FromPlaceName.Contains(search) ||
+                                                       d.FlightStartDateTime.ToString().Contains(search)||
+                                                       d.FlightToDateTime.ToString().Contains(search)
+                                                       ).Select(p=> new AirlineFlightDetailsResponse { 
                                                           FlightId=p.FlightId,
                                                           FlightNumber=p.FlightNumber,
                                                           Airline=p.airlineNmae,
@@ -387,6 +390,56 @@ namespace FlightBookingService.Airline.Repository.Services
            
            return result;
         }
+
+        public async Task<bool> AddDiscount(DiscountsRequest discountsRequest)
+        {
+            if (discountsRequest == null)
+                throw new ArgumentNullException(nameof(discountsRequest));
+
+            bool result = false;
+            Discount discount;
+
+            var discountsDetails = await _airlineServiceContext.Discounts.Where(d => d.DiscountCode == discountsRequest.DiscountCode).FirstOrDefaultAsync();
+            if (discountsDetails == null)
+            {
+                discount = new Discount()
+                {
+                    DiscountCode = discountsRequest.DiscountCode,
+                    DiscountCost = discountsRequest.DiscountCost, 
+                };
+                await _airlineServiceContext.AddAsync(discount);
+                result = true;
+            }
+            else
+            {
+                discountsDetails.DiscountCode = discountsRequest.DiscountCode;
+                discountsDetails.DiscountCost = discountsRequest.DiscountCost;  
+                result = true;
+            }
+
+            await _airlineServiceContext.SaveChangesAsync();
+            return result;
+        }
+
+        public async Task<DiscountsResponseList> GetAllDiscounts()
+        { 
+
+            var discountListDetails = await (from fd in _airlineServiceContext.Discounts 
+                                             select new DiscountsResponse()
+                                             {
+                                                 DiscountCode = fd.DiscountCode,
+                                                 DiscountCost = fd.DiscountCost
+                                             }
+
+                                      ).ToListAsync();
+            var discountList = new DiscountsResponseList
+            {
+
+                DiscountsResponsesLists = discountListDetails
+            };
+            return discountList;
+        }
+
 
         #region Private Method
 

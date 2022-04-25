@@ -35,5 +35,9 @@ namespace FlightBookingService.Airline.Repository.Interface
         /// <param name="status"></param>
         /// <returns></returns>
         Task<bool> UpdateAirline(int airlineId,int status);
+
+        Task<bool> AddDiscount(DiscountsRequest discountsRequest);
+
+        Task<DiscountsResponseList> GetAllDiscounts();
     }
 }

@@ -49,7 +49,7 @@ namespace FlightBookingService.Airline.Controllers
         public async Task<bool> Inventory([FromBody] AirlineFlightDetailsRequest airlineFlightDetailsRequest)
         {
             var result = await _airlineFlightDetailsServices.AddAirlineSchedule(airlineFlightDetailsRequest);
-
+             
             return result;
         }
 
@@ -92,6 +92,20 @@ namespace FlightBookingService.Airline.Controllers
         public async Task<BookedTicketDetailsResponseList> GetBookedTicketHistory(string emailId)
         {
             return await _airlineFlightDetailsServices.GetBookedTicketHistory(emailId);
+        }
+
+        [HttpPost, ActionName("AddDiscount")]
+        public async Task<bool> AddDiscount([FromBody] DiscountsRequest discountsRequest)
+        {
+            var result = await _airlineFlightDetailsServices.AddDiscount(discountsRequest);
+
+            return result;
+        }
+
+        [HttpGet, ActionName("GetAllDiscount")]
+        public async Task<DiscountsResponseList> GetAllDiscount()
+        {
+            return await _airlineFlightDetailsServices.GetAllDiscounts();
         }
     }
 }
