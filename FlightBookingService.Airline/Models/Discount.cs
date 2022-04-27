@@ -13,5 +13,9 @@ namespace FlightBookingService.Airline.Models
 
         public string DiscountCode { get; set; }
         public int DiscountCost { get; set; }
+
+        public DateTime ExpiryDate { get; set; }
+        public DateTime CreateDate { get; set; }
+        public int IsDelete { get; set; }
     }
 }

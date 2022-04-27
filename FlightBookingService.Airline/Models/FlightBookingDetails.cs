@@ -17,9 +17,9 @@ namespace FlightBookingService.Airline.Models
 
         public int Journey { get; set; } // 1=One Way and 2= Round Trip
 
-        public double OneWayCost { get; set; }
+        public int ClassStatus { get; set; } //0=Business class ,1=Non Business class
 
-        public double TwoWayCost { get; set; } 
+        public decimal TotalCosts { get; set; } 
 
         public int TotalBookSeats { get; set; } 
 
@@ -27,5 +27,6 @@ namespace FlightBookingService.Airline.Models
 
         public DateTime CreateDate { get; set; }
         public int IsDelete { get; set; }
+        public int DiscountId { get; set; } //pk  of Discounts Table
     }
 }

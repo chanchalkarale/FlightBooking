@@ -180,6 +180,10 @@ namespace FlightBookingService.Airline.Repository.Services
             FlightBookingDetails flightBookingDetails;
             UserBookingDetails userBookingDetails;
             var randomPNR = "";
+
+            var airlineFlightDetails = await _airlineServiceContext.AirlineFlightDetails
+                                             .Where(d => d.Id == flightBookingDetailsRequest.FlightId).FirstOrDefaultAsync();
+
             while (true)
             {
                randomPNR = GetRandomPNR();
@@ -192,19 +196,23 @@ namespace FlightBookingService.Airline.Repository.Services
 
             var bookingDetails = await _airlineServiceContext.FlightBookingDetails.Where(d => d.FlightId == flightBookingDetailsRequest.FlightId &&
                                                               d.PNR == randomPNR).FirstOrDefaultAsync();
-            if(bookingDetails==null)
+            decimal actualCost =flightBookingDetailsRequest.ClassStatus == 0 ? airlineFlightDetails.BusTicketCost : airlineFlightDetails.NonBusTicketCost;
+            decimal totalCost = (decimal)CalculateDiscount((Double)actualCost, flightBookingDetailsRequest.DiscountId);
+
+            if (bookingDetails==null)
             {
                 flightBookingDetails = new FlightBookingDetails()
                 {
-                    FlightId=flightBookingDetailsRequest.FlightId,
-                    UserId=flightBookingDetailsRequest.UserId,
-                    Journey=flightBookingDetailsRequest.Journey,
-                    OneWayCost=flightBookingDetailsRequest.OneWayCost,
-                    TwoWayCost=flightBookingDetailsRequest.TwoWayCost,
-                    TotalBookSeats= flightBookingDetailsRequest.userBookingDetailsRequestList.Count,
+                    FlightId = flightBookingDetailsRequest.FlightId,
+                    UserId = flightBookingDetailsRequest.UserId,
+                    Journey = flightBookingDetailsRequest.Journey,
+                    ClassStatus = flightBookingDetailsRequest.ClassStatus,
+                    TotalCosts = totalCost,
+                    TotalBookSeats = flightBookingDetailsRequest.userBookingDetailsRequestList.Count,
                     PNR=randomPNR,
                     CreateDate=DateTime.Now,
-                    IsDelete=0 
+                    IsDelete=0, 
+                    DiscountId=flightBookingDetailsRequest.DiscountId
                 };
                 await _airlineServiceContext.AddAsync(flightBookingDetails);
                 await _airlineServiceContext.SaveChangesAsync();
@@ -213,10 +221,11 @@ namespace FlightBookingService.Airline.Repository.Services
             else
             {
                 bookingDetails.Journey = flightBookingDetailsRequest.Journey;
-                bookingDetails.OneWayCost = flightBookingDetailsRequest.OneWayCost;
-                bookingDetails.TwoWayCost = flightBookingDetailsRequest.TwoWayCost;
+                bookingDetails.ClassStatus = flightBookingDetailsRequest.ClassStatus;
+                bookingDetails.TotalCosts = totalCost;
                 bookingDetails.TotalBookSeats = flightBookingDetailsRequest.userBookingDetailsRequestList.Count;
                 bookingDetails.PNR = randomPNR;
+                bookingDetails.DiscountId = flightBookingDetailsRequest.DiscountId;
 
                 await _airlineServiceContext.SaveChangesAsync();
             }
@@ -451,6 +460,15 @@ namespace FlightBookingService.Airline.Repository.Services
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        private double CalculateDiscount(double actualCost,int discountId)
+        {
+            double totalCost=0;
+            var discountCost = _airlineServiceContext.Discounts.Where(d => d.DiscountId == discountId).Select(s => s.DiscountCost).FirstOrDefault();
+
+            totalCost = actualCost - discountCost;
+            return totalCost;
         }
 
         #endregion
