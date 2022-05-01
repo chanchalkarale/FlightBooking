@@ -2,6 +2,7 @@
 using FlightBookingService.Airline.DTO.Response;
 using FlightBookingService.Airline.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,14 @@ namespace FlightBookingService.Airline.Controllers
     {
         #region
         private readonly IAirlineFlightDetailsServices _airlineFlightDetailsServices;
+       
         #endregion
 
         #region Constructor
 
         public AirlineController(IAirlineFlightDetailsServices airlineFlightDetailsServices)
         {
+            
             _airlineFlightDetailsServices = airlineFlightDetailsServices ?? throw new ArgumentNullException(nameof(airlineFlightDetailsServices));
         }
 

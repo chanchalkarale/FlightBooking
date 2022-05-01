@@ -4,6 +4,7 @@ using FlightBookingService.Airline.Models;
 using FlightBookingService.Airline.Repository.Interface;
 using FlightBookingService.User.DataContext;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,14 @@ namespace FlightBookingService.Airline.Repository.Services
 
         #region 
         private readonly AirlineServiceContext _airlineServiceContext;
+        private readonly ILogger<AirlineFlightDetailsServices> _logger;
+
         #endregion
 
         #region Controller
-        public AirlineFlightDetailsServices(AirlineServiceContext airlineServiceContext)
+        public AirlineFlightDetailsServices(AirlineServiceContext airlineServiceContext,ILogger<AirlineFlightDetailsServices> logger)
         {
+            _logger = logger;
             _airlineServiceContext = airlineServiceContext ?? throw new ArgumentNullException(nameof(airlineServiceContext));
         }
         #endregion

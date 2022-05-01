@@ -3,6 +3,7 @@ using FlightBookingService.User.DTO.Request;
 using FlightBookingService.User.Models;
 using FlightBookingService.User.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +16,16 @@ namespace FlightBookingService.User.Repository.Services
         #region
 
         private readonly UserServiceContext _userServiceContext;
+        private readonly ILogger<UserRegistrationServices> _logger;
+
 
         #endregion
 
         #region Constructor
 
-        public UserRegistrationServices(UserServiceContext userServiceContext)
+        public UserRegistrationServices(UserServiceContext userServiceContext, ILogger<UserRegistrationServices> logger)
         {
+            _logger = logger;
             _userServiceContext = userServiceContext ?? throw new ArgumentNullException(nameof(userServiceContext));
         }
         #endregion

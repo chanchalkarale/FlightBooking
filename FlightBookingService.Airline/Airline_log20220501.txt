@@ -1,0 +1,74 @@
+2022-05-01 22:28:11.365 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-01 22:28:11.418 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger  
+2022-05-01 22:28:11.451 +05:30 [INF] Hosting environment: Development
+2022-05-01 22:28:11.453 +05:30 [INF] Content root path: D:\Study\FlightBooking\FlightBookingAPIGateway\FlightBookingService.Airline
+2022-05-01 22:28:11.460 +05:30 [WRN] Failed to determine the https port for redirect.
+2022-05-01 22:28:11.528 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/index.html  
+2022-05-01 22:28:11.556 +05:30 [INF] Request finished in 114.4219ms 301 
+2022-05-01 22:28:11.622 +05:30 [INF] Request finished in 96.7177ms 200 text/html;charset=utf-8
+2022-05-01 22:28:11.664 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/swagger-ui-bundle.js  
+2022-05-01 22:28:11.664 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/swagger-ui.css  
+2022-05-01 22:28:11.664 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/swagger-ui-standalone-preset.js  
+2022-05-01 22:28:11.807 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2022-05-01 22:28:11.811 +05:30 [INF] Request finished in 147.2433ms 200 text/css
+2022-05-01 22:28:11.820 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2022-05-01 22:28:11.827 +05:30 [INF] Request finished in 162.7193ms 200 application/javascript
+2022-05-01 22:28:11.841 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2022-05-01 22:28:11.844 +05:30 [INF] Request finished in 180.0191ms 200 application/javascript
+2022-05-01 22:28:12.049 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/v1/swagger.json  
+2022-05-01 22:28:12.143 +05:30 [INF] Request finished in 95.1801ms 200 application/json;charset=utf-8
+2022-05-01 22:28:26.140 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/Search/ti  
+2022-05-01 22:28:26.156 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.Search (FlightBookingService.Airline)'
+2022-05-01 22:28:26.198 +05:30 [INF] Route matched with {action = "Search", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.AirlineFlightDetailsResponseList] Search(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-01 22:28:26.996 +05:30 [WRN] No type was specified for the decimal property 'BusTicketCost' on entity type 'AirlineFlightDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-01 22:28:26.998 +05:30 [WRN] No type was specified for the decimal property 'NonBusTicketCost' on entity type 'AirlineFlightDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-01 22:28:27.001 +05:30 [WRN] No type was specified for the decimal property 'TotalCosts' on entity type 'FlightBookingDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-01 22:28:27.098 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-01 22:28:28.653 +05:30 [INF] Executed DbCommand (81ms) [Parameters=[@__search_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[FlightNumber], [a0].[AirlineNmae], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[TotalBusinessSeats], [a].[TotalNonBusinessSeats], [a].[BusTicketCost], [a].[NonBusTicketCost], [a].[FlightSeatRow], [a].[Meal]
+FROM [AirlineFlightDetails] AS [a]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE (((((([a0].[Status] = 0) AND ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, [a0].[AirlineNmae]) > 0))) OR ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, [a].[FlightNumber]) > 0))) OR ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, [a].[ToPlaceName]) > 0))) OR ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, [a].[FromPlaceName]) > 0))) OR ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, CONVERT(VARCHAR(100), [a].[FlightStartDateTime])) > 0))) OR ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, CONVERT(VARCHAR(100), [a].[FlightToDateTime])) > 0))
+2022-05-01 22:28:28.677 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.AirlineFlightDetailsResponseList'.
+2022-05-01 22:28:28.692 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.Search (FlightBookingService.Airline) in 2488.3192ms
+2022-05-01 22:28:28.696 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.Search (FlightBookingService.Airline)'
+2022-05-01 22:28:28.700 +05:30 [INF] Request finished in 2560.2709ms 200 application/json; charset=utf-8
+2022-05-01 22:28:36.036 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/Search/air  
+2022-05-01 22:28:36.043 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.Search (FlightBookingService.Airline)'
+2022-05-01 22:28:36.049 +05:30 [INF] Route matched with {action = "Search", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.AirlineFlightDetailsResponseList] Search(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-01 22:28:36.075 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-01 22:28:36.111 +05:30 [INF] Executed DbCommand (26ms) [Parameters=[@__search_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[FlightNumber], [a0].[AirlineNmae], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[TotalBusinessSeats], [a].[TotalNonBusinessSeats], [a].[BusTicketCost], [a].[NonBusTicketCost], [a].[FlightSeatRow], [a].[Meal]
+FROM [AirlineFlightDetails] AS [a]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE (((((([a0].[Status] = 0) AND ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, [a0].[AirlineNmae]) > 0))) OR ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, [a].[FlightNumber]) > 0))) OR ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, [a].[ToPlaceName]) > 0))) OR ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, [a].[FromPlaceName]) > 0))) OR ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, CONVERT(VARCHAR(100), [a].[FlightStartDateTime])) > 0))) OR ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, CONVERT(VARCHAR(100), [a].[FlightToDateTime])) > 0))
+2022-05-01 22:28:36.123 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.AirlineFlightDetailsResponseList'.
+2022-05-01 22:28:36.130 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.Search (FlightBookingService.Airline) in 78.2441ms
+2022-05-01 22:28:36.132 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.Search (FlightBookingService.Airline)'
+2022-05-01 22:28:36.134 +05:30 [INF] Request finished in 98.0363ms 200 application/json; charset=utf-8
+2022-05-01 22:30:05.090 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-01 22:30:05.124 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/index.html  
+2022-05-01 22:30:05.165 +05:30 [INF] Hosting environment: Development
+2022-05-01 22:30:05.168 +05:30 [INF] Content root path: D:\Study\FlightBooking\FlightBookingAPIGateway\FlightBookingService.Airline
+2022-05-01 22:30:05.177 +05:30 [WRN] Failed to determine the https port for redirect.
+2022-05-01 22:30:05.353 +05:30 [INF] Request finished in 239.4233ms 200 text/html;charset=utf-8
+2022-05-01 22:30:05.937 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/v1/swagger.json  
+2022-05-01 22:30:06.024 +05:30 [INF] Request finished in 86.4218ms 200 application/json;charset=utf-8
+2022-05-01 22:30:57.354 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/v1/swagger.json  
+2022-05-01 22:30:57.366 +05:30 [INF] Request finished in 11.5462ms 200 application/json;charset=utf-8
+2022-05-01 22:34:22.047 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/Search/air  0
+2022-05-01 22:34:22.062 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.Search (FlightBookingService.Airline)'
+2022-05-01 22:34:22.122 +05:30 [INF] Route matched with {action = "Search", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.AirlineFlightDetailsResponseList] Search(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-01 22:34:23.889 +05:30 [WRN] No type was specified for the decimal property 'BusTicketCost' on entity type 'AirlineFlightDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-01 22:34:23.893 +05:30 [WRN] No type was specified for the decimal property 'NonBusTicketCost' on entity type 'AirlineFlightDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-01 22:34:23.897 +05:30 [WRN] No type was specified for the decimal property 'TotalCosts' on entity type 'FlightBookingDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-01 22:34:24.039 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-01 22:34:25.376 +05:30 [INF] Executed DbCommand (99ms) [Parameters=[@__search_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[FlightNumber], [a0].[AirlineNmae], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[TotalBusinessSeats], [a].[TotalNonBusinessSeats], [a].[BusTicketCost], [a].[NonBusTicketCost], [a].[FlightSeatRow], [a].[Meal]
+FROM [AirlineFlightDetails] AS [a]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE (((((([a0].[Status] = 0) AND ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, [a0].[AirlineNmae]) > 0))) OR ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, [a].[FlightNumber]) > 0))) OR ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, [a].[ToPlaceName]) > 0))) OR ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, [a].[FromPlaceName]) > 0))) OR ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, CONVERT(VARCHAR(100), [a].[FlightStartDateTime])) > 0))) OR ((@__search_0 LIKE N'') OR (CHARINDEX(@__search_0, CONVERT(VARCHAR(100), [a].[FlightToDateTime])) > 0))
+2022-05-01 22:34:25.423 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.AirlineFlightDetailsResponseList'.
+2022-05-01 22:34:25.444 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.Search (FlightBookingService.Airline) in 3314.485ms
+2022-05-01 22:34:25.448 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.Search (FlightBookingService.Airline)'
+2022-05-01 22:34:25.454 +05:30 [INF] Request finished in 3408.313ms 200 application/json; charset=utf-8

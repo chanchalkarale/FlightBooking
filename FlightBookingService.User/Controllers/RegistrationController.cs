@@ -1,6 +1,7 @@
 ﻿using FlightBookingService.User.DTO.Request;
 using FlightBookingService.User.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,12 @@ namespace FlightBookingService.User.Controllers
     public class RegistrationController : ControllerBase
     {
         private readonly IUserRegistrationServices _userRegistrationServices;
+        private readonly ILogger<RegistrationController> _logger;
 
-        public RegistrationController(IUserRegistrationServices userRegistrationServices)
+
+        public RegistrationController(IUserRegistrationServices userRegistrationServices, ILogger<RegistrationController> logger)
         {
+             _logger = logger;
             _userRegistrationServices = userRegistrationServices ?? throw new ArgumentNullException(nameof(userRegistrationServices));
         }
 
