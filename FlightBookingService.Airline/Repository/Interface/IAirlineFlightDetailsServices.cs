@@ -39,5 +39,17 @@ namespace FlightBookingService.Airline.Repository.Interface
         Task<bool> AddDiscount(DiscountsRequest discountsRequest);
 
         Task<DiscountsResponseList> GetAllDiscounts();
+        Task<List<GetAirlineResponse>> GetAirlines();
+
+        Task<List<GetAirlineResponse>> GetAllAirlines();
+        Task<AirlineFlightDetailsResponseList> GetAllAirlineFlightsDetails();
+
+        Task<bool> RemoveAirlineFlight(int flightId);
+
+        Task<bool> DeleteAirline(int airlineId);
+
+        Task<bool> RemoveDiscount(int discountId);
+
+        Task<bool> UpdateDiscount(DiscountsRequest discountsRequest);
     }
 }

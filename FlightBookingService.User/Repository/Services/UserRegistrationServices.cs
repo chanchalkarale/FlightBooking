@@ -59,14 +59,14 @@ namespace FlightBookingService.User.Repository.Services
             return  result;
         }
 
-        public async Task<bool> Login(LoginRequest loginRequest)
+        public bool Login(LoginRequest loginRequest)
         {
             if (loginRequest == null)
                 throw new ArgumentNullException(nameof(loginRequest));
 
             bool result = false;
-            var checkUser = await _userServiceContext.userRegistrations.Where(d => d.UserName == loginRequest.Username
-                                                 && d.Password == loginRequest.Password).FirstOrDefaultAsync();
+            var checkUser =  _userServiceContext.userRegistrations.Where(d => d.UserName == loginRequest.Username
+                                                 && d.Password == loginRequest.Password).FirstOrDefault();
 
             if(checkUser!=null)
             {

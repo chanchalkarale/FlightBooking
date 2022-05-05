@@ -2,6 +2,101 @@
   "ReRoutes": [
     {
 
+      "DownstreamPathTemplate": "/api/Airline/RemoveDiscount",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/Airline/RemoveDiscount",
+      "UpstreamHttpMethod": [ "PATCH" ],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/Airline/DeleteAirline",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/Airline/DeleteAirline",
+      "UpstreamHttpMethod": [ "PATCH" ],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/Airline/RemoveFlight",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/Airline/RemoveFlight",
+      "UpstreamHttpMethod": [ "PATCH" ],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/Airline/GetAllAirlineFlightsDetails",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/Airline/GetAllAirlineFlightsDetails",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/Authentication/authenticate",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "14973"
+        }
+      ],
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      //},
+      "UpstreamPathTemplate": "/Authentication",
+      "UpstreamHttpMethod": [ "POST" ],
+      "SwaggerKey": "auth"
+
+    },
+    {
+
       "DownstreamPathTemplate": "/api/Airline/register",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -10,6 +105,10 @@
           "Port": "38221"
         }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "UpstreamPathTemplate": "/Airline/register",
       "UpstreamHttpMethod": [ "POST" ],
       "SwaggerKey": "airlines"
@@ -25,6 +124,10 @@
           "Port": "38221"
         }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "UpstreamPathTemplate": "/Airline/Inventory",
       "UpstreamHttpMethod": [ "GET", "POST" ],
       "SwaggerKey": "airlines"
@@ -40,6 +143,10 @@
           "Port": "38221"
         }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "UpstreamPathTemplate": "/Airline/BlockUnblockAirline",
       "UpstreamHttpMethod": [ "PATCH" ],
       "SwaggerKey": "airlines"
@@ -55,6 +162,10 @@
           "Port": "38221"
         }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "UpstreamPathTemplate": "/Airline/Search/{searchText}",
       "UpstreamHttpMethod": [ "GET", "POST" ],
       "SwaggerKey": "airlines"
@@ -70,6 +181,10 @@
           "Port": "38221"
         }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "UpstreamPathTemplate": "/Airline/Booking",
       "UpstreamHttpMethod": [ "GET", "POST" ],
       "SwaggerKey": "airlines"
@@ -85,6 +200,10 @@
           "Port": "38221"
         }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "UpstreamPathTemplate": "/Airline/GetBookedDeatils/{pnr}",
       "UpstreamHttpMethod": [ "GET", "POST" ],
       "SwaggerKey": "airlines"
@@ -100,6 +219,10 @@
           "Port": "38221"
         }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "UpstreamPathTemplate": "/Airline/CancelTicket/{pnr}",
       "UpstreamHttpMethod": [ "DELETE" ],
       "SwaggerKey": "airlines"
@@ -115,6 +238,10 @@
           "Port": "38221"
         }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "UpstreamPathTemplate": "/Airline/GetBookedHistory/{emailId}",
       "UpstreamHttpMethod": [ "GET" ],
       "SwaggerKey": "airlines"
@@ -130,6 +257,10 @@
           "Port": "38221"
         }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "UpstreamPathTemplate": "/Airline/{id}",
       "UpstreamHttpMethod": [ "GET" ],
       "SwaggerKey": "airlines"
@@ -145,6 +276,10 @@
           "Port": "38221"
         }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "UpstreamPathTemplate": "/Airline/AddDiscount",
       "UpstreamHttpMethod": [ "POST" ],
       "SwaggerKey": "airlines"
@@ -160,12 +295,53 @@
           "Port": "38221"
         }
       ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "UpstreamPathTemplate": "/Airline/GetAllDiscount",
       "UpstreamHttpMethod": [ "GET" ],
       "SwaggerKey": "airlines"
 
     },
+    {
 
+      "DownstreamPathTemplate": "/api/Airline/GetAirlines",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/Airline/GetAirlines",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
+      "DownstreamPathTemplate": "/api/Airline/GetAllAirlines",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/Airline/GetAllAirlines",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "airlines"
+
+    },
     {
 
       "DownstreamPathTemplate": "/api/Registration/register",
@@ -176,6 +352,10 @@
           "Port": "57768"
         }
       ],
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      //},
       "UpstreamPathTemplate": "/Registration/register",
       "UpstreamHttpMethod": [ "GET", "POST" ],
       "SwaggerKey": "user"
@@ -191,6 +371,10 @@
           "Port": "57768"
         }
       ],
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      //},
       "UpstreamPathTemplate": "/Registration/login",
       "UpstreamHttpMethod": [ "GET", "POST" ],
       "SwaggerKey": "user"
@@ -216,6 +400,16 @@
           "Name": "User API",
           "Version": "v1",
           "Url": "http://localhost:57768/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "auth",
+      "Config": [
+        {
+          "Name": "Auth API",
+          "Version": "v1",
+          "Url": "http://localhost:14973/swagger/v1/swagger.json"
         }
       ]
     }

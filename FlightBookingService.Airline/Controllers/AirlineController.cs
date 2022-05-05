@@ -46,6 +46,13 @@ namespace FlightBookingService.Airline.Controllers
             return result;
         }
 
+        [HttpPatch, ActionName("DeleteAirline")]
+        public async Task<bool> DeleteAirline(int airlineId)
+        {
+            var result = await _airlineFlightDetailsServices.DeleteAirline(airlineId);
+            return result;
+        }
+
 
         [HttpPost, ActionName("Inventory")]
         [HttpPost]
@@ -100,8 +107,18 @@ namespace FlightBookingService.Airline.Controllers
         [HttpPost, ActionName("AddDiscount")]
         public async Task<bool> AddDiscount([FromBody] DiscountsRequest discountsRequest)
         {
-            var result = await _airlineFlightDetailsServices.AddDiscount(discountsRequest);
-
+            var result = false;
+            if (discountsRequest != null)
+            {
+                if (discountsRequest.DiscountId >0)
+                {
+                    result = await _airlineFlightDetailsServices.UpdateDiscount(discountsRequest);
+                }
+                else
+                {
+                    result = await _airlineFlightDetailsServices.AddDiscount(discountsRequest);
+                }
+            }
             return result;
         }
 
@@ -109,6 +126,42 @@ namespace FlightBookingService.Airline.Controllers
         public async Task<DiscountsResponseList> GetAllDiscount()
         {
             return await _airlineFlightDetailsServices.GetAllDiscounts();
+        }
+
+        [HttpGet, ActionName("GetAirlines")]
+        public async Task<List<GetAirlineResponse>> GetAirlines()
+        {
+            var result= await _airlineFlightDetailsServices.GetAirlines();
+            return result;
+        }
+
+        [HttpGet, ActionName("GetAllAirlines")]
+        public async Task<List<GetAirlineResponse>> GetAllAirlines()
+        {
+            var result= await _airlineFlightDetailsServices.GetAllAirlines();
+            return result;
+        }
+
+        // GET api/<AirlineController>/5
+        [HttpGet, ActionName("GetAllAirlineFlightsDetails")]
+        public async Task<AirlineFlightDetailsResponseList> GetAllAirlineFlightsDetails()
+        {
+            return await _airlineFlightDetailsServices.GetAllAirlineFlightsDetails();
+        }
+
+        [HttpPatch, ActionName("RemoveFlight")]
+        public async Task<bool> RemoveFlight(int flightId)
+        {
+            var result = await _airlineFlightDetailsServices.RemoveAirlineFlight(flightId);
+            return result;
+        }
+
+
+        [HttpPatch, ActionName("RemoveDiscount")]
+        public async Task<bool> RemoveDiscount(int discountId)
+        {
+            var result = await _airlineFlightDetailsServices.RemoveDiscount(discountId);
+            return result;
         }
     }
 }

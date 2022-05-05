@@ -404,6 +404,21 @@ namespace FlightBookingService.Airline.Repository.Services
            return result;
         }
 
+        public async Task<bool> DeleteAirline(int airlineId)
+        {
+            bool result = false;
+            var airlineDetails = await _airlineServiceContext.AirlineDetails.Where(d => d.AirlineId == airlineId).FirstOrDefaultAsync();
+            if (airlineDetails != null)
+            {
+                airlineDetails.IsDelete = 1;// 1= Deleted ariline ,0= Available Airline 
+                await _airlineServiceContext.SaveChangesAsync();
+                result = true;
+            }
+
+
+            return result;
+        }
+
         public async Task<bool> AddDiscount(DiscountsRequest discountsRequest)
         {
             if (discountsRequest == null)
@@ -418,7 +433,10 @@ namespace FlightBookingService.Airline.Repository.Services
                 discount = new Discount()
                 {
                     DiscountCode = discountsRequest.DiscountCode,
-                    DiscountCost = discountsRequest.DiscountCost, 
+                    DiscountCost = discountsRequest.DiscountCost,
+                    ExpiryDate=DateTime.Now,
+                    IsDelete=0,
+                    CreateDate=DateTime.Now
                 };
                 await _airlineServiceContext.AddAsync(discount);
                 result = true;
@@ -426,7 +444,28 @@ namespace FlightBookingService.Airline.Repository.Services
             else
             {
                 discountsDetails.DiscountCode = discountsRequest.DiscountCode;
-                discountsDetails.DiscountCost = discountsRequest.DiscountCost;  
+                discountsDetails.DiscountCost = discountsRequest.DiscountCost;
+                discountsDetails.ExpiryDate = DateTime.Now;
+                result = true;
+            }
+
+            await _airlineServiceContext.SaveChangesAsync();
+            return result;
+        }
+
+        public async Task<bool> UpdateDiscount(DiscountsRequest discountsRequest)
+        {
+            if (discountsRequest == null)
+                throw new ArgumentNullException(nameof(discountsRequest));
+
+            bool result = false; 
+
+            var discountsDetails = await _airlineServiceContext.Discounts.Where(d => d.DiscountId == discountsRequest.DiscountId).FirstOrDefaultAsync();
+            if (discountsDetails != null)
+            { 
+                discountsDetails.DiscountCode = discountsRequest.DiscountCode;
+                discountsDetails.DiscountCost = discountsRequest.DiscountCost;
+                discountsDetails.ExpiryDate = discountsRequest.ExpiryDate;
                 result = true;
             }
 
@@ -437,11 +476,14 @@ namespace FlightBookingService.Airline.Repository.Services
         public async Task<DiscountsResponseList> GetAllDiscounts()
         { 
 
-            var discountListDetails = await (from fd in _airlineServiceContext.Discounts 
+            var discountListDetails = await (from fd in _airlineServiceContext.Discounts
+                                             where(fd.IsDelete==0)
                                              select new DiscountsResponse()
                                              {
                                                  DiscountCode = fd.DiscountCode,
-                                                 DiscountCost = fd.DiscountCost
+                                                 DiscountCost = fd.DiscountCost,
+                                                 DiscountId=fd.DiscountId,
+                                                 ExpiryDate=fd.ExpiryDate
                                              }
 
                                       ).ToListAsync();
@@ -451,6 +493,91 @@ namespace FlightBookingService.Airline.Repository.Services
                 DiscountsResponsesLists = discountListDetails
             };
             return discountList;
+        }
+
+        public async Task<List<GetAirlineResponse>> GetAirlines()
+        {
+
+            var airlineListDetails = await (from fd in _airlineServiceContext.AirlineDetails
+                                            where fd.IsDelete==0 && fd.Status==0
+                                             select new GetAirlineResponse()
+                                             {
+                                                 AirlineId = fd.AirlineId,
+                                                 AirlineName = fd.AirlineNmae,
+                                                 Status=fd.Status
+                                             }
+
+                                      ).ToListAsync();
+           
+            return airlineListDetails;
+        }
+
+        public async Task<List<GetAirlineResponse>> GetAllAirlines()
+        {
+
+            var airlineListDetails = await (from fd in _airlineServiceContext.AirlineDetails
+                                            where fd.IsDelete == 0
+                                            select new GetAirlineResponse()
+                                            {
+                                                AirlineId = fd.AirlineId,
+                                                AirlineName = fd.AirlineNmae,
+                                                Status = fd.Status
+                                            }
+
+                                      ).ToListAsync();
+
+            return airlineListDetails;
+        }
+
+        public async Task<AirlineFlightDetailsResponseList> GetAllAirlineFlightsDetails()
+        {
+
+
+
+            var searchList = await _airlineServiceContext.AirlineFlightDetails.Join(_airlineServiceContext.AirlineDetails,
+                                                      flight => flight.AirlineId,
+                                                      airline => airline.AirlineId, (flight, airline) => new {
+                                                          airlineNmae = airline.AirlineNmae,
+                                                          airlineId = airline.AirlineId,
+                                                          fAirlineId = flight.AirlineId,
+                                                          FlightNumber = flight.FlightNumber,
+                                                          ToPlaceName = flight.ToPlaceName,
+                                                          FromPlaceName = flight.FromPlaceName,
+                                                          FlightId = flight.Id,
+                                                          FlightStartDateTime = flight.FlightStartDateTime,
+                                                          FlightToDateTime = flight.FlightToDateTime,
+                                                          TotalBusinessSeats = flight.TotalBusinessSeats,
+                                                          TotalNonBusinessSeats = flight.TotalNonBusinessSeats,
+                                                          BusTicketCost = flight.BusTicketCost,
+                                                          NonBusTicketCost = flight.NonBusTicketCost,
+                                                          FlightSeatRow = flight.FlightSeatRow,
+                                                          Meal = ((MealEnum)flight.Meal).ToString(),
+                                                          status = airline.Status,
+                                                          isDeletedflight=flight.IsDelete
+
+                                                      }).Where(d => d.status == 0&& d.isDeletedflight==0)
+                                                      .Select(p => new AirlineFlightDetailsResponse
+                                                       {
+                                                           FlightId = p.FlightId,
+                                                           FlightNumber = p.FlightNumber,
+                                                           Airline = p.airlineNmae,
+                                                           FromPlaceName = p.FromPlaceName,
+                                                           ToPlaceName = p.ToPlaceName,
+                                                           FlightStartDateTime = p.FlightStartDateTime,
+                                                           FlightToDateTime = p.FlightToDateTime,
+                                                           TotalBusinessSeats = p.TotalBusinessSeats,
+                                                           TotalNonBusinessSeats = p.TotalNonBusinessSeats,
+                                                           BusTicketCost = p.BusTicketCost,
+                                                           NonBusTicketCost = p.NonBusTicketCost,
+                                                           FlightSeatRow = p.FlightSeatRow,
+                                                           Meal = p.Meal
+                                                       }).ToListAsync();
+
+            var airlineFlightDetailsResponseList = new AirlineFlightDetailsResponseList
+            {
+                airlineFlightDetailsResponsesList = searchList
+            };
+            return airlineFlightDetailsResponseList;
         }
 
 
@@ -474,6 +601,37 @@ namespace FlightBookingService.Airline.Repository.Services
             totalCost = actualCost - discountCost;
             return totalCost;
         }
+
+        public async Task<bool> RemoveAirlineFlight(int flightId)
+        {
+            bool result = false;
+            var flightDetails = await _airlineServiceContext.AirlineFlightDetails.Where(d => d.Id == flightId).FirstOrDefaultAsync();
+            if (flightDetails != null)
+            {
+                flightDetails.IsDelete = 1;// 1= delete flight ,0= available 
+                await _airlineServiceContext.SaveChangesAsync();
+                result = true;
+            }
+
+
+            return result;
+        }
+
+        public async Task<bool> RemoveDiscount(int discountId)
+        {
+            bool result = false;
+            var flightDetails = await _airlineServiceContext.Discounts.Where(d => d.DiscountId == discountId).FirstOrDefaultAsync();
+            if (flightDetails != null)
+            {
+                flightDetails.IsDelete = 1;// 1= delete discount ,0= available 
+                await _airlineServiceContext.SaveChangesAsync();
+                result = true;
+            }
+
+
+            return result;
+        }
+
 
         #endregion
     }

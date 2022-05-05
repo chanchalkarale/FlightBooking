@@ -1,22 +1,22 @@
-using FlightBookingService.Airline.Repository.Interface;
-using FlightBookingService.Airline.Repository.Services;
-using FlightBookingService.User.DataContext;
+using AuthJWT.Repository.Interface;
+using AuthJWT.Repository.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace FlightBookingService.Airline
+namespace AuthJWT
 {
     public class Startup
     {
@@ -30,42 +30,28 @@ namespace FlightBookingService.Airline
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
             services.AddSwaggerGen();
-            services.AddDbContext<AirlineServiceContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AirlineConnectionString")));
-
-            services.AddSwaggerGen(c =>
+            services.AddAuthentication(x =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = true;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
                 {
-                    Title = "Airline API",
-                    Version = "v1"
-                });
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    In = ParameterLocation.Header,
-                    Description = "Please insert JWT with Bearer into field",
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey
-                });
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
-               {
-                 new OpenApiSecurityScheme
-                 {
-                   Reference = new OpenApiReference
-                   {
-                     Type = ReferenceType.SecurityScheme,
-                     Id = "Bearer"
-                   }
-                  },
-                  new string[] { }
-                }
-              });
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey =
+                        new SymmetricSecurityKey(
+                            Encoding.ASCII.GetBytes(Configuration.GetSection("JWTSettings:SecretKey").Value)),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
             });
-
-            #region Register Services
-            services.AddTransient<IAirlineFlightDetailsServices, AirlineFlightDetailsServices>();
-            #endregion
+            services.AddSingleton<IAuthManager>(
+                new AuthManager(Configuration.GetSection("JWTSettings:SecretKey").Value));
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,13 +67,13 @@ namespace FlightBookingService.Airline
             app.UseRouting();
 
             app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

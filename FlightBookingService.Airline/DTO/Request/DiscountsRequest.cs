@@ -9,5 +9,7 @@ namespace FlightBookingService.Airline.DTO.Request
     {
         public string DiscountCode { get; set; }
         public int DiscountCost { get; set; }
+        public int DiscountId { get; set; }
+        public DateTime ExpiryDate { get; set; }
     }
 }
