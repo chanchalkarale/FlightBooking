@@ -9,7 +9,8 @@ namespace FlightBookingService.Airline.DTO.Request
     {
         public int FlightId { get; set; } //pk of a AirlineFlightDetails
 
-        public int? FlightBookingId { get; set; } //pk of a FlightBookingDetails
+        public int? FlightBookingId { get; set; } //pk of a FlightBookingDetails not needed
+        
         public int UserId { get; set; }
 
         public int Journey { get; set; } // 1=One Way and 2= Round Trip

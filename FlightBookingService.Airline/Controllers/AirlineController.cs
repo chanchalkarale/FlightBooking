@@ -1,5 +1,6 @@
 ﻿using FlightBookingService.Airline.DTO.Request;
 using FlightBookingService.Airline.DTO.Response;
+using FlightBookingService.Airline.Models;
 using FlightBookingService.Airline.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -162,6 +163,13 @@ namespace FlightBookingService.Airline.Controllers
         {
             var result = await _airlineFlightDetailsServices.RemoveDiscount(discountId);
             return result;
+        }
+
+        // GET api/<AirlineController>/5
+        [HttpPost, ActionName("SearchFlights")]
+        public async Task<List<AirlineFlightDetailsRawQueryModel>> SearchFlights(SearchFlightRequest searchFlightRequest)
+        {
+            return await _airlineFlightDetailsServices.SearchFlights(searchFlightRequest);
         }
     }
 }

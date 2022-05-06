@@ -82,8 +82,8 @@ namespace FlightBookingService.Airline.Repository.Services
                   AirlineId=airlineFlightDetailsRequest.AirlineId,
                   FromPlaceName=airlineFlightDetailsRequest.FromPlaceName,
                   ToPlaceName=airlineFlightDetailsRequest.ToPlaceName,
-                  FlightStartDateTime=airlineFlightDetailsRequest.FlightStartDateTime,
-                  FlightToDateTime=airlineFlightDetailsRequest.FlightToDateTime,
+                  FlightStartDateTime=airlineFlightDetailsRequest.FlightStartDateTime.AddDays(1),
+                  FlightToDateTime=airlineFlightDetailsRequest.FlightToDateTime.AddDays(1),
                   TotalBusinessSeats=airlineFlightDetailsRequest.TotalBusinessSeats,
                   TotalNonBusinessSeats=airlineFlightDetailsRequest.TotalNonBusinessSeats,
                   BusTicketCost = airlineFlightDetailsRequest.BusTicketCost,
@@ -101,8 +101,8 @@ namespace FlightBookingService.Airline.Repository.Services
                 airlineDetails.AirlineId = airlineFlightDetailsRequest.AirlineId;
                 airlineDetails.FromPlaceName = airlineFlightDetailsRequest.FromPlaceName;
                 airlineDetails.ToPlaceName = airlineFlightDetailsRequest.ToPlaceName;
-                airlineDetails.FlightStartDateTime = airlineFlightDetailsRequest.FlightStartDateTime;
-                airlineDetails.FlightToDateTime = airlineFlightDetailsRequest.FlightToDateTime;
+                airlineDetails.FlightStartDateTime = airlineFlightDetailsRequest.FlightStartDateTime.AddDays(1);
+                airlineDetails.FlightToDateTime = airlineFlightDetailsRequest.FlightToDateTime.AddDays(1);
                 airlineDetails.TotalBusinessSeats = airlineFlightDetailsRequest.TotalBusinessSeats;
                 airlineDetails.TotalNonBusinessSeats = airlineFlightDetailsRequest.TotalNonBusinessSeats;
 
@@ -434,7 +434,7 @@ namespace FlightBookingService.Airline.Repository.Services
                 {
                     DiscountCode = discountsRequest.DiscountCode,
                     DiscountCost = discountsRequest.DiscountCost,
-                    ExpiryDate=DateTime.Now,
+                    ExpiryDate=discountsRequest.ExpiryDate.AddDays(1),
                     IsDelete=0,
                     CreateDate=DateTime.Now
                 };
@@ -445,7 +445,9 @@ namespace FlightBookingService.Airline.Repository.Services
             {
                 discountsDetails.DiscountCode = discountsRequest.DiscountCode;
                 discountsDetails.DiscountCost = discountsRequest.DiscountCost;
-                discountsDetails.ExpiryDate = DateTime.Now;
+                discountsDetails.ExpiryDate = discountsRequest.ExpiryDate.AddDays(1);
+                discountsDetails.IsDelete = 0;
+                discountsDetails.CreateDate = DateTime.Now;
                 result = true;
             }
 
@@ -465,7 +467,7 @@ namespace FlightBookingService.Airline.Repository.Services
             { 
                 discountsDetails.DiscountCode = discountsRequest.DiscountCode;
                 discountsDetails.DiscountCost = discountsRequest.DiscountCost;
-                discountsDetails.ExpiryDate = discountsRequest.ExpiryDate;
+                discountsDetails.ExpiryDate = discountsRequest.ExpiryDate.AddDays(1);
                 result = true;
             }
 
@@ -631,6 +633,112 @@ namespace FlightBookingService.Airline.Repository.Services
 
             return result;
         }
+
+        public async Task<List<AirlineFlightDetailsRawQueryModel>> SearchFlights(SearchFlightRequest searchFlightRequest)
+        {
+
+            var query = "";
+             if (searchFlightRequest.seatsClass=="1")//Economy class
+            {
+
+                query = "SELECT af.Id as 'FlightId',af.FlightNumber,AD.AirlineNmae as Airline," +
+                                        " AF.FromPlaceName,AF.ToPlaceName,AF.FlightStartDateTime," +
+                                        " AF.FlightToDateTime,AF.NonBusTicketCost as TicketCost," +
+                                        " AF.TotalBusinessSeats,AF.TotalNonBusinessSeats,AF.FlightSeatRow," +
+                                        " AF.Meal , '1' as ClassStatus FROM[FlightBooking].[dbo].[AirlineFlightDetails] as AF " +
+                                        " inner join[FlightBooking].[dbo].[AirlineDetails] as AD on AF.AirlineId = AD.AirlineId ";
+            }
+            else
+            {
+                query = "SELECT af.Id as 'FlightId',af.FlightNumber,AD.AirlineNmae as Airline," +
+                                        " AF.FromPlaceName,AF.ToPlaceName,AF.FlightStartDateTime," +
+                                        " AF.FlightToDateTime,AF.BusTicketCost as TicketCost," +
+                                        " AF.TotalBusinessSeats,AF.TotalNonBusinessSeats,AF.FlightSeatRow," +
+                                        " AF.Meal , '2' as ClassStatus   FROM[FlightBooking].[dbo].[AirlineFlightDetails] as AF " +
+                                        " inner join[FlightBooking].[dbo].[AirlineDetails] as AD on AF.AirlineId = AD.AirlineId ";
+            }
+            
+
+            query += " where (FromPlaceName='" + searchFlightRequest.FromPlace + "' and ToPlaceName='" + searchFlightRequest.ToPlace + "' " +
+                " and convert(date,FlightStartDateTime,103) =convert(date,'" + searchFlightRequest.DepartureDate.AddDays(1) + "',103))";
+
+            if(searchFlightRequest.JourneyType=="1")
+            {
+                query += " or (FromPlaceName='" + searchFlightRequest.ToPlace + "' and ToPlaceName='" + searchFlightRequest.FromPlace + "' " +
+                " and convert(date,FlightStartDateTime,103) = convert(date,'" + searchFlightRequest.ReturnDate.AddDays(1) + "',103))";
+            }
+
+            var searchResult = await _airlineServiceContext.airlineFlightDetailsRawQueryModels.FromSqlRaw(query).ToListAsync();
+            //var searchResult = await from af in _airlineServiceContext.AirlineFlightDetails
+            //                          join ad in _airlineServiceContext.AirlineDetails
+            //                          on af.AirlineId equals ad.AirlineId into g
+            //                          from gm in g.DefaultIfEmpty()
+            //                              //where ad.Status==0
+            //                         select new AirlineFlightDetailsResponse()
+            //                         {
+            //                             FlightId = af.Id,
+            //                             FlightNumber = af.FlightNumber,
+            //                            // Airline = ad.AirlineNmae,
+            //                             FromPlaceName = af.FromPlaceName,
+            //                             ToPlaceName = af.ToPlaceName,
+            //                             FlightStartDateTime = af.FlightStartDateTime,
+            //                             FlightToDateTime = af.FlightToDateTime,
+            //                             TotalBusinessSeats = af.TotalBusinessSeats,
+            //                             TotalNonBusinessSeats = af.TotalNonBusinessSeats,
+            //                             BusTicketCost = af.BusTicketCost,
+            //                             NonBusTicketCost = af.NonBusTicketCost,
+            //                             FlightSeatRow = af.FlightSeatRow,
+            //                             Meal = ((MealEnum)af.Meal).ToString()
+
+            //                         };
+
+            //var searchList = await _airlineServiceContext.AirlineFlightDetails.Join(_airlineServiceContext.AirlineDetails,
+            //                                          flight => flight.AirlineId,
+            //                                          airline => airline.AirlineId, (flight, airline) => new {
+            //                                              airlineNmae = airline.AirlineNmae,
+            //                                              airlineId = airline.AirlineId,
+            //                                              fAirlineId = flight.AirlineId,
+            //                                              FlightNumber = flight.FlightNumber,
+            //                                              ToPlaceName = flight.ToPlaceName,
+            //                                              FromPlaceName = flight.FromPlaceName,
+            //                                              FlightId = flight.Id,
+            //                                              FlightStartDateTime = flight.FlightStartDateTime,
+            //                                              FlightToDateTime = flight.FlightToDateTime,
+            //                                              TotalBusinessSeats = flight.TotalBusinessSeats,
+            //                                              TotalNonBusinessSeats = flight.TotalNonBusinessSeats,
+            //                                              BusTicketCost = flight.BusTicketCost,
+            //                                              NonBusTicketCost = flight.NonBusTicketCost,
+            //                                              FlightSeatRow = flight.FlightSeatRow,
+            //                                              Meal = ((MealEnum)flight.Meal).ToString(),
+            //                                              status = airline.Status
+
+            //                                          }).Where(d => d.status == 0 && d.airlineNmae.Contains(search) ||
+            //                                           d.FlightNumber.Contains(search) ||
+            //                                           d.ToPlaceName.Contains(search) ||
+            //                                           d.FromPlaceName.Contains(search) ||
+            //                                           d.FlightStartDateTime.ToString().Contains(search) ||
+            //                                           d.FlightToDateTime.ToString().Contains(search)
+            //                                           ).Select(p => new AirlineFlightDetailsResponse
+            //                                           {
+            //                                               FlightId = p.FlightId,
+            //                                               FlightNumber = p.FlightNumber,
+            //                                               Airline = p.airlineNmae,
+            //                                               FromPlaceName = p.FromPlaceName,
+            //                                               ToPlaceName = p.ToPlaceName,
+            //                                               FlightStartDateTime = p.FlightStartDateTime,
+            //                                               FlightToDateTime = p.FlightToDateTime,
+            //                                               TotalBusinessSeats = p.TotalBusinessSeats,
+            //                                               TotalNonBusinessSeats = p.TotalNonBusinessSeats,
+            //                                               BusTicketCost = p.BusTicketCost,
+            //                                               NonBusTicketCost = p.NonBusTicketCost,
+            //                                               FlightSeatRow = p.FlightSeatRow,
+            //                                               Meal = p.Meal
+            //                                           }).ToListAsync();
+
+            
+            return searchResult;
+        }
+
 
 
         #endregion

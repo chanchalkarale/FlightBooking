@@ -1,5 +1,6 @@
 ﻿using FlightBookingService.Airline.DTO.Request;
 using FlightBookingService.Airline.DTO.Response;
+using FlightBookingService.Airline.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,5 +52,7 @@ namespace FlightBookingService.Airline.Repository.Interface
         Task<bool> RemoveDiscount(int discountId);
 
         Task<bool> UpdateDiscount(DiscountsRequest discountsRequest);
+
+        Task<List<AirlineFlightDetailsRawQueryModel>> SearchFlights(SearchFlightRequest searchFlightRequest);
     }
 }

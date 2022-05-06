@@ -2,6 +2,25 @@
   "ReRoutes": [
     {
 
+      "DownstreamPathTemplate": "/api/Airline/SearchFlights",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/Airline/SearchFlights",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "SwaggerKey": "airlines"
+
+    },
+    {
+
       "DownstreamPathTemplate": "/api/Airline/RemoveDiscount",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
