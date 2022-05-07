@@ -36,5 +36,13 @@ namespace FlightBookingService.Airline.DTO.Response
         public string Meal { get; set; }
 
         public int Age { get; set; }
+
+        public decimal TotalCost { get; set; }
+
+        public int ClassStatus { get; set; }
+
+        public bool CancalStatus { get; set; }
+
+        public string PnrNumber { get; set; }
     }
 }

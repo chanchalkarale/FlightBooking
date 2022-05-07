@@ -75,7 +75,7 @@ namespace FlightBookingService.Airline.Controllers
         [HttpPost, ActionName("Booking")]
         [HttpPost]
         public async Task<bool> TicketBooking([FromBody] FlightBookingDetailsRequest flightBookingDetailsRequest)
-        {
+            {
             var result = false;
             result = await _airlineFlightDetailsServices.BookFlightTicket(flightBookingDetailsRequest);
             return result;
@@ -170,6 +170,21 @@ namespace FlightBookingService.Airline.Controllers
         public async Task<List<AirlineFlightDetailsRawQueryModel>> SearchFlights(SearchFlightRequest searchFlightRequest)
         {
             return await _airlineFlightDetailsServices.SearchFlights(searchFlightRequest);
+        }
+
+
+        [HttpGet("{discountCode}"), ActionName("GetDiscountUsingCode")]
+        public async Task<DiscountsResponseList> GetDiscountUsingCode(string discountCode)
+        {
+            return await _airlineFlightDetailsServices.GetDiscountUsingCode(discountCode);
+        }
+
+
+        // GET api/<AirlineController>/5
+        [HttpGet("{userId}")]
+        public async Task<BookedTicketDetailsResponseList> GetAllBookedTicket(int userId)
+        {
+            return await _airlineFlightDetailsServices.GetAllBookedTicket(userId);
         }
     }
 }

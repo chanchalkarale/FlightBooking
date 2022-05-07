@@ -59,18 +59,18 @@ namespace FlightBookingService.User.Repository.Services
             return  result;
         }
 
-        public bool Login(LoginRequest loginRequest)
+        public int Login(LoginRequest loginRequest)
         {
             if (loginRequest == null)
                 throw new ArgumentNullException(nameof(loginRequest));
 
-            bool result = false;
+            int result = 0;
             var checkUser =  _userServiceContext.userRegistrations.Where(d => d.UserName == loginRequest.Username
                                                  && d.Password == loginRequest.Password).FirstOrDefault();
 
             if(checkUser!=null)
             {
-                result = true;
+                result = checkUser.UserId;
             }
 
             return result;

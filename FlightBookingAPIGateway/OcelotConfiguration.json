@@ -1,5 +1,25 @@
 {
   "ReRoutes": [
+
+    {
+
+      "DownstreamPathTemplate": "/api/Airline/GetDiscountUsingCode/{discountCode}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "38221"
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "UpstreamPathTemplate": "/Airline/GetDiscountUsingCode/{discountCode}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "airlines"
+
+    },
     {
 
       "DownstreamPathTemplate": "/api/Airline/SearchFlights",

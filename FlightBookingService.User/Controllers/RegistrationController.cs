@@ -61,7 +61,7 @@ namespace FlightBookingService.User.Controllers
         [HttpPost, ActionName("Login")]
         public IActionResult Login([FromBody] LoginRequest loginRequest)
         {
-            bool result = false;
+            int userId = 0;
             var loginResponse = new LoginResponse();
             string role = "user";
             var token = "";
@@ -69,19 +69,19 @@ namespace FlightBookingService.User.Controllers
             {
                 if(loginRequest.Username=="Admin" && loginRequest.Password=="Admin")
                 {
-                    role = "admin";
-                    result = true;
+                    role = "admin"; 
                 }
                 else
                 {
-                    role = "user";
-                    result =  _userRegistrationServices.Login(loginRequest);
+                    role = "user"; 
                 }
 
-                if (result)
+                userId = _userRegistrationServices.Login(loginRequest);
+
+                if (userId > 0)
                 {
 
-                     token = _authManager.Authenticate(loginRequest.Username, loginRequest.Password, role);
+                     token = _authManager.Authenticate(loginRequest.Username, loginRequest.Password, role,userId);
                     if (token is null)
                     {
                         return Unauthorized();

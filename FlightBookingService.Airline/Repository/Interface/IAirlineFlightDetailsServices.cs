@@ -54,5 +54,9 @@ namespace FlightBookingService.Airline.Repository.Interface
         Task<bool> UpdateDiscount(DiscountsRequest discountsRequest);
 
         Task<List<AirlineFlightDetailsRawQueryModel>> SearchFlights(SearchFlightRequest searchFlightRequest);
+
+        Task<DiscountsResponseList> GetDiscountUsingCode(string discountCode);
+
+        Task<BookedTicketDetailsResponseList> GetAllBookedTicket(int userId);
     }
 }
