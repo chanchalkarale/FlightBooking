@@ -298,7 +298,7 @@ namespace FlightBookingService.Airline.Repository.Services
                                        on fd.FlightId equals ad.Id
                                              join a in _airlineServiceContext.AirlineDetails
                                                   on ad.AirlineId equals a.AirlineId
-                                             where fd.PNR == pnr && fd.IsDelete == 0//&& fd.UserId == userId
+                                             where fd.PNR == pnr //&& fd.IsDelete == 0//&& fd.UserId == userId
                                        select new BookedTicketDetailsResponse()
                                        {
                                            FlightNumber = ad.FlightNumber,
@@ -315,7 +315,8 @@ namespace FlightBookingService.Airline.Repository.Services
                                            ArrivalTime=ad.FlightToDateTime,
                                            BusTicketCost=ad.BusTicketCost,
                                            NonBusTicketCost=ad.NonBusTicketCost,
-                                           Journey= fd.Journey==0?"One Way":"Two Way"
+                                           Journey= fd.Journey==0?"One Way":"Two Way",
+                                           ClassStatus=fd.ClassStatus
                                        }
 
                                       ).ToListAsync();
@@ -802,7 +803,8 @@ namespace FlightBookingService.Airline.Repository.Services
                                                  Journey = fd.Journey == 0 ? "One Way" : "Two Way",
                                                  ClassStatus=fd.ClassStatus,
                                                  CancalStatus=ad.FlightStartDateTime<=DateTime.Now?false:true,
-                                                 PnrNumber=fd.PNR
+                                                 PnrNumber=fd.PNR,
+                                                 TotalSeats=fd.TotalBookSeats
                                              }
 
                                       ).ToListAsync();
@@ -813,6 +815,60 @@ namespace FlightBookingService.Airline.Repository.Services
             };
             return booke;
         }
+
+
+        public async Task<BookedTicketDetailsResponseList> GetBookedTicketHistoryViaUserId(int userId)
+        {
+            //select AFD.FlightNumber,AFD.Airline,UBD.UserName,UBD.UserEmail,UBD.Age,UBD.Gender,UBD.Meal
+            // ,UBD.SeatNumber,AFD.FromPlaceName,AFD.ToPlaceName,AFD.FlightStartDateTime,AFD.FlightToDateTime,AFD.TicketCost
+            //from[FlightBooking_User].[dbo].[FlightBookingDetails] as FBD
+            //inner join[FlightBooking_User].[dbo].[UserBookingDetails] as UBD on FBD.FlightBookingId = UBD.FlightBookingID
+            //inner join[FlightBooking_User].[dbo].[AirlineFlightDetails] as AFD on AFD.Id = FBD.FlightId 
+            //where FBD.PNR = 'QWERDS1234' and FBD.UserId = 1
+
+
+            if (userId == null)
+                throw new ArgumentNullException(nameof(userId));
+
+            var ticketBookedDetails = await (from fd in _airlineServiceContext.FlightBookingDetails
+                                            // join ud in _airlineServiceContext.UserBookingDetails
+                                            // on fd.FlightBookingId equals ud.FlightBookingId
+                                             join ad in _airlineServiceContext.AirlineFlightDetails
+                                             on fd.FlightId equals ad.Id
+                                             join a in _airlineServiceContext.AirlineDetails
+                                                  on ad.AirlineId equals a.AirlineId
+                                             where fd.UserId == userId //&& fd.IsDelete == 0//&& fd.UserId == userId
+                                             select new BookedTicketDetailsResponse()
+                                             {
+                                                 FlightNumber = ad.FlightNumber,
+                                                 AirlineName = a.AirlineNmae,
+                                                 //Name = ud.UserName,
+                                                 //Email = ud.UserEmail,
+                                                 // Age = ud.Age,
+                                                 // Gender = ud.Gender == 0 ? "Male" : "Female",
+                                                 // Meal = ((MealEnum)ud.Meal).ToString(),
+                                                 // SeatNo = ud.SeatNumber,
+                                                 FromPlace = ad.FromPlaceName,
+                                                 ToPlace = ad.ToPlaceName,
+                                                 DepartureTime = ad.FlightStartDateTime,
+                                                 ArrivalTime = ad.FlightToDateTime,
+                                                 TotalCost = fd.TotalCosts,
+                                                 Journey = fd.Journey == 0 ? "One Way" : "Two Way",
+                                                 ClassStatus = fd.ClassStatus,
+                                                 CancalStatus = ad.FlightStartDateTime <= DateTime.Now ? false : true,
+                                                 PnrNumber = fd.PNR,
+                                                 TotalSeats = fd.TotalBookSeats
+                                             }
+
+                                      ).ToListAsync();
+            var booke = new BookedTicketDetailsResponseList
+            {
+
+                bookedTicketDetailsResponsesList = ticketBookedDetails
+            };
+            return booke;
+        }
+
 
 
 

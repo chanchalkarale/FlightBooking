@@ -91,7 +91,7 @@ namespace FlightBookingService.Airline.Controllers
          
 
         // DELETE api/<AirlineController>/5
-        [HttpDelete("{pnr}")]
+        [HttpPatch]
         public async Task<bool> CancelTicket(string pnr)
         {
             var result = false;
@@ -186,5 +186,21 @@ namespace FlightBookingService.Airline.Controllers
         {
             return await _airlineFlightDetailsServices.GetAllBookedTicket(userId);
         }
+        // GET api/<AirlineController>/5
+        [HttpGet("{userId}")]
+        public async Task<BookedTicketDetailsResponseList> GetBookedTicketHistoryViaUserId(int userId)
+        {
+            return await _airlineFlightDetailsServices.GetBookedTicketHistoryViaUserId(userId);
+        }
+
+        //public async Task<FileResult> GetStudentAcademicReport2(int StudentID, int ReportSeq)
+        //{
+        //    var report = await _airlineFlightDetailsServices.GetAllDiscounts();
+        //    if (report == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return File(report.DiscountsResponsesLists, "application/pdf", "test.pdf");
+        //}
     }
 }

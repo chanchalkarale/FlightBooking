@@ -58,5 +58,7 @@ namespace FlightBookingService.Airline.Repository.Interface
         Task<DiscountsResponseList> GetDiscountUsingCode(string discountCode);
 
         Task<BookedTicketDetailsResponseList> GetAllBookedTicket(int userId);
+
+        Task<BookedTicketDetailsResponseList> GetBookedTicketHistoryViaUserId(int userId);
     }
 }

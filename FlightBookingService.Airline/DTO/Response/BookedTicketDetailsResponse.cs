@@ -44,5 +44,7 @@ namespace FlightBookingService.Airline.DTO.Response
         public bool CancalStatus { get; set; }
 
         public string PnrNumber { get; set; }
+
+        public int TotalSeats { get; set; }
     }
 }
