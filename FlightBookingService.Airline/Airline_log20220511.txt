@@ -1,0 +1,247 @@
+2022-05-11 00:07:42.403 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-11 00:07:42.464 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/index.html  
+2022-05-11 00:07:42.509 +05:30 [INF] Hosting environment: Development
+2022-05-11 00:07:42.512 +05:30 [INF] Content root path: D:\Study\FlightBooking\FlightBookingAPIGateway\FlightBookingService.Airline
+2022-05-11 00:07:42.523 +05:30 [WRN] Failed to determine the https port for redirect.
+2022-05-11 00:07:42.692 +05:30 [INF] Request finished in 231.8442ms 200 text/html;charset=utf-8
+2022-05-11 00:07:43.034 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/v1/swagger.json  
+2022-05-11 00:07:43.065 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/favicon-32x32.png  
+2022-05-11 00:07:43.152 +05:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2022-05-11 00:07:43.157 +05:30 [INF] Request finished in 91.6981ms 200 image/png
+2022-05-11 00:07:43.232 +05:30 [INF] Request finished in 197.9683ms 200 application/json;charset=utf-8
+2022-05-11 00:08:22.506 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:38221/api/Airline/SearchFlights application/json 182
+2022-05-11 00:08:22.526 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline)'
+2022-05-11 00:08:22.612 +05:30 [INF] Route matched with {action = "SearchFlights", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[FlightBookingService.Airline.Models.AirlineFlightDetailsRawQueryModel]] SearchFlights(FlightBookingService.Airline.DTO.Request.SearchFlightRequest) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-11 00:08:23.995 +05:30 [WRN] No type was specified for the decimal property 'BusTicketCost' on entity type 'AirlineFlightDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-11 00:08:23.999 +05:30 [WRN] No type was specified for the decimal property 'NonBusTicketCost' on entity type 'AirlineFlightDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-11 00:08:24.001 +05:30 [WRN] No type was specified for the decimal property 'TicketCost' on entity type 'AirlineFlightDetailsRawQueryModel'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-11 00:08:24.003 +05:30 [WRN] No type was specified for the decimal property 'TotalCosts' on entity type 'FlightBookingDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-11 00:08:24.127 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-11 00:08:26.802 +05:30 [ERR] Failed executing DbCommand (264ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT af.Id as 'FlightId',af.FlightNumber,AD.AirlineNmae as Airline, AF.FromPlaceName,AF.ToPlaceName,AF.FlightStartDateTime, AF.FlightToDateTime,AF.BusTicketCost as TicketCost, AF.TotalBusinessSeats,AF.TotalNonBusinessSeats,AF.FlightSeatRow, AF.Meal , '2' as ClassStatus   FROM[FlightBooking].[dbo].[AirlineFlightDetails] as AF  inner join[FlightBooking].[dbo].[AirlineDetails] as AD on AF.AirlineId = AD.AirlineId  where (FromPlaceName='pune' and ToPlaceName='mumbai'  and convert(date,FlightStartDateTime,103) =convert(date,'11-05-2022 18:38:05',103)) or (FromPlaceName='mumbai' and ToPlaceName='pune'  and convert(date,FlightStartDateTime,103) = convert(date,'11-05-2022 18:38:05',103))
+2022-05-11 00:08:26.889 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'FlightBookingService.User.DataContext.AirlineServiceContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Reference to database and/or server name in 'FlightBooking.dbo.AirlineFlightDetails' is not supported in this version of SQL Server.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:2740fa0c-d97f-4415-8992-ebc89adcd5ba
+Error Number:40515,State:1,Class:15
+Microsoft.Data.SqlClient.SqlException (0x80131904): Reference to database and/or server name in 'FlightBooking.dbo.AirlineFlightDetails' is not supported in this version of SQL Server.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:2740fa0c-d97f-4415-8992-ebc89adcd5ba
+Error Number:40515,State:1,Class:15
+2022-05-11 00:08:27.088 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline) in 4465.4962ms
+2022-05-11 00:08:27.091 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline)'
+2022-05-11 00:08:27.096 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Reference to database and/or server name in 'FlightBooking.dbo.AirlineFlightDetails' is not supported in this version of SQL Server.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at FlightBookingService.Airline.Repository.Services.AirlineFlightDetailsServices.SearchFlights(SearchFlightRequest searchFlightRequest) in D:\Study\FlightBooking\FlightBookingAPIGateway\FlightBookingService.Airline\Repository\Services\AirlineFlightDetailsServices.cs:line 673
+   at FlightBookingService.Airline.Controllers.AirlineController.SearchFlights(SearchFlightRequest searchFlightRequest) in D:\Study\FlightBooking\FlightBookingAPIGateway\FlightBookingService.Airline\Controllers\AirlineController.cs:line 170
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:2740fa0c-d97f-4415-8992-ebc89adcd5ba
+Error Number:40515,State:1,Class:15
+2022-05-11 00:08:27.161 +05:30 [INF] Request finished in 4657.1188ms 500 text/plain
+2022-05-11 00:08:53.201 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:38221/api/Airline/SearchFlights application/json 182
+2022-05-11 00:08:53.209 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline)'
+2022-05-11 00:08:53.213 +05:30 [INF] Route matched with {action = "SearchFlights", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[FlightBookingService.Airline.Models.AirlineFlightDetailsRawQueryModel]] SearchFlights(FlightBookingService.Airline.DTO.Request.SearchFlightRequest) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-11 00:09:08.587 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-11 00:09:08.825 +05:30 [ERR] Failed executing DbCommand (227ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT af.Id as 'FlightId',af.FlightNumber,AD.AirlineNmae as Airline, AF.FromPlaceName,AF.ToPlaceName,AF.FlightStartDateTime, AF.FlightToDateTime,AF.BusTicketCost as TicketCost, AF.TotalBusinessSeats,AF.TotalNonBusinessSeats,AF.FlightSeatRow, AF.Meal , '2' as ClassStatus   FROM[FlightBooking].[dbo].[AirlineFlightDetails] as AF  inner join[FlightBooking].[dbo].[AirlineDetails] as AD on AF.AirlineId = AD.AirlineId  where (FromPlaceName='pune' and ToPlaceName='mumbai'  and convert(date,FlightStartDateTime,103) =convert(date,'11-05-2022 18:38:05',103)) or (FromPlaceName='mumbai' and ToPlaceName='pune'  and convert(date,FlightStartDateTime,103) = convert(date,'11-05-2022 18:38:05',103))
+2022-05-11 00:09:08.829 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'FlightBookingService.User.DataContext.AirlineServiceContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Reference to database and/or server name in 'FlightBooking.dbo.AirlineFlightDetails' is not supported in this version of SQL Server.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:2740fa0c-d97f-4415-8992-ebc89adcd5ba
+Error Number:40515,State:1,Class:15
+Microsoft.Data.SqlClient.SqlException (0x80131904): Reference to database and/or server name in 'FlightBooking.dbo.AirlineFlightDetails' is not supported in this version of SQL Server.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:2740fa0c-d97f-4415-8992-ebc89adcd5ba
+Error Number:40515,State:1,Class:15
+2022-05-11 00:09:08.942 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline) in 15726.9418ms
+2022-05-11 00:09:08.945 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline)'
+2022-05-11 00:09:08.948 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Reference to database and/or server name in 'FlightBooking.dbo.AirlineFlightDetails' is not supported in this version of SQL Server.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__274_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.FromSqlQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at FlightBookingService.Airline.Repository.Services.AirlineFlightDetailsServices.SearchFlights(SearchFlightRequest searchFlightRequest) in D:\Study\FlightBooking\FlightBookingAPIGateway\FlightBookingService.Airline\Repository\Services\AirlineFlightDetailsServices.cs:line 673
+   at FlightBookingService.Airline.Controllers.AirlineController.SearchFlights(SearchFlightRequest searchFlightRequest) in D:\Study\FlightBooking\FlightBookingAPIGateway\FlightBookingService.Airline\Controllers\AirlineController.cs:line 170
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:2740fa0c-d97f-4415-8992-ebc89adcd5ba
+Error Number:40515,State:1,Class:15
+2022-05-11 00:09:08.958 +05:30 [INF] Request finished in 15757.7026ms 500 text/plain
+2022-05-11 00:12:14.889 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:38221/api/Airline/SearchFlights application/json 182
+2022-05-11 00:12:14.906 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline)'
+2022-05-11 00:12:14.909 +05:30 [INF] Route matched with {action = "SearchFlights", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[FlightBookingService.Airline.Models.AirlineFlightDetailsRawQueryModel]] SearchFlights(FlightBookingService.Airline.DTO.Request.SearchFlightRequest) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-11 00:17:08.729 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-11 00:17:08.784 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/index.html  
+2022-05-11 00:17:08.814 +05:30 [INF] Hosting environment: Development
+2022-05-11 00:17:08.817 +05:30 [INF] Content root path: D:\Study\FlightBooking\FlightBookingAPIGateway\FlightBookingService.Airline
+2022-05-11 00:17:08.825 +05:30 [WRN] Failed to determine the https port for redirect.
+2022-05-11 00:17:08.918 +05:30 [INF] Request finished in 137.1337ms 200 text/html;charset=utf-8
+2022-05-11 00:17:09.152 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/v1/swagger.json  
+2022-05-11 00:17:09.306 +05:30 [INF] Request finished in 154.4286ms 200 application/json;charset=utf-8
+2022-05-11 00:17:34.555 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:38221/api/Airline/SearchFlights application/json 182
+2022-05-11 00:17:34.584 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline)'
+2022-05-11 00:17:34.656 +05:30 [INF] Route matched with {action = "SearchFlights", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[FlightBookingService.Airline.Models.AirlineFlightDetailsRawQueryModel]] SearchFlights(FlightBookingService.Airline.DTO.Request.SearchFlightRequest) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-11 00:17:40.034 +05:30 [WRN] No type was specified for the decimal property 'BusTicketCost' on entity type 'AirlineFlightDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-11 00:17:40.037 +05:30 [WRN] No type was specified for the decimal property 'NonBusTicketCost' on entity type 'AirlineFlightDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-11 00:17:40.041 +05:30 [WRN] No type was specified for the decimal property 'TicketCost' on entity type 'AirlineFlightDetailsRawQueryModel'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-11 00:17:40.043 +05:30 [WRN] No type was specified for the decimal property 'TotalCosts' on entity type 'FlightBookingDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-11 00:17:40.128 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-11 00:17:42.521 +05:30 [INF] Executed DbCommand (255ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT af.Id as 'FlightId',af.FlightNumber,AD.AirlineNmae as Airline, AF.FromPlaceName,AF.ToPlaceName,AF.FlightStartDateTime, AF.FlightToDateTime,AF.NonBusTicketCost as TicketCost, AF.TotalBusinessSeats,AF.TotalNonBusinessSeats,AF.FlightSeatRow, AF.Meal , '1' as ClassStatus FROM [dbo].[AirlineFlightDetails] as AF  inner join [dbo].[AirlineDetails] as AD on AF.AirlineId = AD.AirlineId  where (FromPlaceName='pune' and ToPlaceName='mumbai'  and convert(date,FlightStartDateTime,103) =convert(date,'15-05-2022 18:47:17',103))
+2022-05-11 00:17:42.558 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[FlightBookingService.Airline.Models.AirlineFlightDetailsRawQueryModel, FlightBookingService.Airline, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-05-11 00:17:42.575 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline) in 7911.3536ms
+2022-05-11 00:17:42.578 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline)'
+2022-05-11 00:17:42.587 +05:30 [INF] Request finished in 8033.3189ms 200 application/json; charset=utf-8
+2022-05-11 00:17:53.266 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:38221/api/Airline/SearchFlights application/json 182
+2022-05-11 00:17:53.288 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline)'
+2022-05-11 00:17:53.295 +05:30 [INF] Route matched with {action = "SearchFlights", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[FlightBookingService.Airline.Models.AirlineFlightDetailsRawQueryModel]] SearchFlights(FlightBookingService.Airline.DTO.Request.SearchFlightRequest) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-11 00:17:56.854 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-11 00:17:57.068 +05:30 [INF] Executed DbCommand (207ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT af.Id as 'FlightId',af.FlightNumber,AD.AirlineNmae as Airline, AF.FromPlaceName,AF.ToPlaceName,AF.FlightStartDateTime, AF.FlightToDateTime,AF.NonBusTicketCost as TicketCost, AF.TotalBusinessSeats,AF.TotalNonBusinessSeats,AF.FlightSeatRow, AF.Meal , '1' as ClassStatus FROM [dbo].[AirlineFlightDetails] as AF  inner join [dbo].[AirlineDetails] as AD on AF.AirlineId = AD.AirlineId  where (FromPlaceName='pune' and ToPlaceName='mumbai'  and convert(date,FlightStartDateTime,103) =convert(date,'14-05-2022 18:47:17',103))
+2022-05-11 00:17:57.079 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[FlightBookingService.Airline.Models.AirlineFlightDetailsRawQueryModel, FlightBookingService.Airline, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-05-11 00:17:57.086 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline) in 3787.6882ms
+2022-05-11 00:17:57.088 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline)'
+2022-05-11 00:17:57.091 +05:30 [INF] Request finished in 3824.9859ms 200 application/json; charset=utf-8
+2022-05-11 00:31:47.825 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-11 00:31:47.856 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/index.html  
+2022-05-11 00:31:47.914 +05:30 [INF] Hosting environment: Development
+2022-05-11 00:31:47.917 +05:30 [INF] Content root path: D:\Study\FlightBooking\FlightBookingAPIGateway\FlightBookingService.Airline
+2022-05-11 00:31:47.924 +05:30 [WRN] Failed to determine the https port for redirect.
+2022-05-11 00:31:48.031 +05:30 [INF] Request finished in 179.111ms 200 text/html;charset=utf-8
+2022-05-11 00:31:48.218 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/v1/swagger.json  
+2022-05-11 00:31:48.326 +05:30 [INF] Request finished in 107.7872ms 200 application/json;charset=utf-8
+2022-05-11 00:32:38.751 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:38221/api/Airline/SearchTicket application/json 157
+2022-05-11 00:32:38.766 +05:30 [INF] Request finished in 22.1966ms 404 
+2022-05-11 00:32:57.118 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:38221/api/Airline/SearchTicket application/json 159
+2022-05-11 00:32:57.126 +05:30 [INF] Request finished in 8.3334ms 404 
+2022-05-11 00:33:05.606 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:38221/api/Airline/SearchFlights application/json 159
+2022-05-11 00:33:05.614 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline)'
+2022-05-11 00:33:05.668 +05:30 [INF] Route matched with {action = "SearchFlights", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[FlightBookingService.Airline.Models.AirlineFlightDetailsRawQueryModel]] SearchFlights(FlightBookingService.Airline.DTO.Request.SearchFlightRequest) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-11 00:33:06.020 +05:30 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2022-05-11 00:33:06.031 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline) in 357.3489ms
+2022-05-11 00:33:06.034 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline)'
+2022-05-11 00:33:06.037 +05:30 [INF] Request finished in 430.7863ms 400 application/problem+json; charset=utf-8
+2022-05-11 00:33:15.328 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:38221/api/Airline/SearchFlights application/json 157
+2022-05-11 00:33:15.331 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline)'
+2022-05-11 00:33:15.335 +05:30 [INF] Route matched with {action = "SearchFlights", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[FlightBookingService.Airline.Models.AirlineFlightDetailsRawQueryModel]] SearchFlights(FlightBookingService.Airline.DTO.Request.SearchFlightRequest) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-11 00:33:27.119 +05:30 [WRN] No type was specified for the decimal property 'BusTicketCost' on entity type 'AirlineFlightDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-11 00:33:27.122 +05:30 [WRN] No type was specified for the decimal property 'NonBusTicketCost' on entity type 'AirlineFlightDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-11 00:33:27.124 +05:30 [WRN] No type was specified for the decimal property 'TicketCost' on entity type 'AirlineFlightDetailsRawQueryModel'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-11 00:33:27.126 +05:30 [WRN] No type was specified for the decimal property 'TotalCosts' on entity type 'FlightBookingDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-11 00:33:27.231 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-11 00:33:29.701 +05:30 [INF] Executed DbCommand (245ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT af.Id as 'FlightId',af.FlightNumber,AD.AirlineNmae as Airline, AF.FromPlaceName,AF.ToPlaceName,AF.FlightStartDateTime, AF.FlightToDateTime,AF.NonBusTicketCost as TicketCost, AF.TotalBusinessSeats,AF.TotalNonBusinessSeats,AF.FlightSeatRow, AF.Meal , '1' as ClassStatus FROM [dbo].[AirlineFlightDetails] as AF  inner join [dbo].[AirlineDetails] as AD on AF.AirlineId = AD.AirlineId  where (FromPlaceName='pune' and ToPlaceName='mumbai'  and convert(date,FlightStartDateTime,103) =convert(date,'13-05-2022 18:30:00',103))
+2022-05-11 00:33:29.731 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[FlightBookingService.Airline.Models.AirlineFlightDetailsRawQueryModel, FlightBookingService.Airline, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-05-11 00:33:29.739 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline) in 14401.9628ms
+2022-05-11 00:33:29.742 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline)'
+2022-05-11 00:33:29.747 +05:30 [INF] Request finished in 14419.7138ms 200 application/json; charset=utf-8
+2022-05-11 00:39:55.737 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:38221/api/Airline/SearchFlights application/json 189
+2022-05-11 00:39:55.832 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline)'
+2022-05-11 00:39:55.860 +05:30 [INF] Route matched with {action = "SearchFlights", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[FlightBookingService.Airline.Models.AirlineFlightDetailsRawQueryModel]] SearchFlights(FlightBookingService.Airline.DTO.Request.SearchFlightRequest) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-11 00:39:59.775 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-11 00:40:01.378 +05:30 [INF] Executed DbCommand (210ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT af.Id as 'FlightId',af.FlightNumber,AD.AirlineNmae as Airline, AF.FromPlaceName,AF.ToPlaceName,AF.FlightStartDateTime, AF.FlightToDateTime,AF.NonBusTicketCost as TicketCost, AF.TotalBusinessSeats,AF.TotalNonBusinessSeats,AF.FlightSeatRow, AF.Meal , '1' as ClassStatus FROM [dbo].[AirlineFlightDetails] as AF  inner join [dbo].[AirlineDetails] as AD on AF.AirlineId = AD.AirlineId  where (FromPlaceName='pune' and ToPlaceName='mumbai'  and convert(date,FlightStartDateTime,103) =convert(date,'13-05-2022 19:04:31',103))
+2022-05-11 00:40:01.409 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[FlightBookingService.Airline.Models.AirlineFlightDetailsRawQueryModel, FlightBookingService.Airline, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-05-11 00:40:01.415 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline) in 5551.7269ms
+2022-05-11 00:40:01.417 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.SearchFlights (FlightBookingService.Airline)'
+2022-05-11 00:40:01.420 +05:30 [INF] Request finished in 5720.8633ms 200 application/json; charset=utf-8

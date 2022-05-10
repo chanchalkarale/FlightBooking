@@ -1,0 +1,1155 @@
+2022-05-10 09:25:03.747 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-10 09:25:03.777 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/index.html  
+2022-05-10 09:25:03.812 +05:30 [INF] Hosting environment: Development
+2022-05-10 09:25:03.815 +05:30 [INF] Content root path: D:\Study\FlightBooking\FlightBookingAPIGateway\FlightBookingService.Airline
+2022-05-10 09:25:03.828 +05:30 [WRN] Failed to determine the https port for redirect.
+2022-05-10 09:25:04.017 +05:30 [INF] Request finished in 248.4224ms 200 text/html;charset=utf-8
+2022-05-10 09:25:04.884 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/v1/swagger.json  
+2022-05-10 09:25:05.079 +05:30 [INF] Request finished in 194.4349ms 200 application/json;charset=utf-8
+2022-05-10 09:27:59.010 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllAirlines  0
+2022-05-10 09:27:59.047 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlines (FlightBookingService.Airline)'
+2022-05-10 09:27:59.175 +05:30 [INF] Route matched with {action = "GetAllAirlines", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[FlightBookingService.Airline.DTO.Response.GetAirlineResponse]] GetAllAirlines() on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 09:27:59.742 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAirlines  0
+2022-05-10 09:27:59.742 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllAirlineFlightsDetails  0
+2022-05-10 09:27:59.762 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAirlines (FlightBookingService.Airline)'
+2022-05-10 09:27:59.762 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlineFlightsDetails (FlightBookingService.Airline)'
+2022-05-10 09:27:59.806 +05:30 [INF] Route matched with {action = "GetAirlines", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[FlightBookingService.Airline.DTO.Response.GetAirlineResponse]] GetAirlines() on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 09:27:59.806 +05:30 [INF] Route matched with {action = "GetAllAirlineFlightsDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.AirlineFlightDetailsResponseList] GetAllAirlineFlightsDetails() on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 09:28:01.099 +05:30 [WRN] No type was specified for the decimal property 'BusTicketCost' on entity type 'AirlineFlightDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-10 09:28:01.104 +05:30 [WRN] No type was specified for the decimal property 'NonBusTicketCost' on entity type 'AirlineFlightDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-10 09:28:01.109 +05:30 [WRN] No type was specified for the decimal property 'TicketCost' on entity type 'AirlineFlightDetailsRawQueryModel'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-10 09:28:01.116 +05:30 [WRN] No type was specified for the decimal property 'TotalCosts' on entity type 'FlightBookingDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-10 09:28:01.367 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 09:28:01.367 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 09:28:01.367 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 09:28:03.123 +05:30 [INF] Executed DbCommand (97ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[AirlineId], [a].[AirlineNmae] AS [AirlineName], [a].[Status]
+FROM [AirlineDetails] AS [a]
+WHERE [a].[IsDelete] = 0
+2022-05-10 09:28:03.123 +05:30 [INF] Executed DbCommand (85ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[AirlineId], [a].[AirlineNmae] AS [AirlineName], [a].[Status]
+FROM [AirlineDetails] AS [a]
+WHERE ([a].[IsDelete] = 0) AND ([a].[Status] = 0)
+2022-05-10 09:28:03.131 +05:30 [INF] Executed DbCommand (114ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[FlightNumber], [a0].[AirlineNmae], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[TotalBusinessSeats], [a].[TotalNonBusinessSeats], [a].[BusTicketCost], [a].[NonBusTicketCost], [a].[FlightSeatRow], [a].[Meal]
+FROM [AirlineFlightDetails] AS [a]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([a0].[Status] = 0) AND ([a].[IsDelete] = 0)
+2022-05-10 09:28:03.208 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[FlightBookingService.Airline.DTO.Response.GetAirlineResponse, FlightBookingService.Airline, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-05-10 09:28:03.208 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.AirlineFlightDetailsResponseList'.
+2022-05-10 09:28:03.208 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[FlightBookingService.Airline.DTO.Response.GetAirlineResponse, FlightBookingService.Airline, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-05-10 09:28:03.242 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlineFlightsDetails (FlightBookingService.Airline) in 3422.9475ms
+2022-05-10 09:28:03.244 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlines (FlightBookingService.Airline) in 4050.015ms
+2022-05-10 09:28:03.244 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAirlines (FlightBookingService.Airline) in 3416.8453ms
+2022-05-10 09:28:03.252 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlineFlightsDetails (FlightBookingService.Airline)'
+2022-05-10 09:28:03.252 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlines (FlightBookingService.Airline)'
+2022-05-10 09:28:03.256 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAirlines (FlightBookingService.Airline)'
+2022-05-10 09:28:03.275 +05:30 [INF] Request finished in 4268.1863ms 200 application/json; charset=utf-8
+2022-05-10 09:28:03.275 +05:30 [INF] Request finished in 3532.3313ms 200 application/json; charset=utf-8
+2022-05-10 09:28:03.275 +05:30 [INF] Request finished in 3532.3981ms 200 application/json; charset=utf-8
+2022-05-10 09:32:10.181 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllAirlineFlightsDetails  0
+2022-05-10 09:32:10.189 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlineFlightsDetails (FlightBookingService.Airline)'
+2022-05-10 09:32:10.198 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAirlines  0
+2022-05-10 09:32:10.200 +05:30 [INF] Route matched with {action = "GetAllAirlineFlightsDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.AirlineFlightDetailsResponseList] GetAllAirlineFlightsDetails() on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 09:32:10.209 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAirlines (FlightBookingService.Airline)'
+2022-05-10 09:32:10.212 +05:30 [INF] Route matched with {action = "GetAirlines", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[FlightBookingService.Airline.DTO.Response.GetAirlineResponse]] GetAirlines() on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 09:32:10.300 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 09:32:10.300 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 09:32:10.340 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[FlightNumber], [a0].[AirlineNmae], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[TotalBusinessSeats], [a].[TotalNonBusinessSeats], [a].[BusTicketCost], [a].[NonBusTicketCost], [a].[FlightSeatRow], [a].[Meal]
+FROM [AirlineFlightDetails] AS [a]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([a0].[Status] = 0) AND ([a].[IsDelete] = 0)
+2022-05-10 09:32:10.340 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[AirlineId], [a].[AirlineNmae] AS [AirlineName], [a].[Status]
+FROM [AirlineDetails] AS [a]
+WHERE ([a].[IsDelete] = 0) AND ([a].[Status] = 0)
+2022-05-10 09:32:10.351 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.AirlineFlightDetailsResponseList'.
+2022-05-10 09:32:10.351 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[FlightBookingService.Airline.DTO.Response.GetAirlineResponse, FlightBookingService.Airline, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-05-10 09:32:10.361 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlineFlightsDetails (FlightBookingService.Airline) in 152.0626ms
+2022-05-10 09:32:10.361 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAirlines (FlightBookingService.Airline) in 145.6589ms
+2022-05-10 09:32:10.366 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlineFlightsDetails (FlightBookingService.Airline)'
+2022-05-10 09:32:10.371 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAirlines (FlightBookingService.Airline)'
+2022-05-10 09:32:10.376 +05:30 [INF] Request finished in 194.9846ms 200 application/json; charset=utf-8
+2022-05-10 09:32:10.380 +05:30 [INF] Request finished in 182.5475ms 200 application/json; charset=utf-8
+2022-05-10 09:33:08.451 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllAirlines  0
+2022-05-10 09:33:08.458 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlines (FlightBookingService.Airline)'
+2022-05-10 09:33:08.462 +05:30 [INF] Route matched with {action = "GetAllAirlines", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[FlightBookingService.Airline.DTO.Response.GetAirlineResponse]] GetAllAirlines() on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 09:33:08.469 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 09:33:08.500 +05:30 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[AirlineId], [a].[AirlineNmae] AS [AirlineName], [a].[Status]
+FROM [AirlineDetails] AS [a]
+WHERE [a].[IsDelete] = 0
+2022-05-10 09:33:08.513 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[FlightBookingService.Airline.DTO.Response.GetAirlineResponse, FlightBookingService.Airline, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-05-10 09:33:08.519 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlines (FlightBookingService.Airline) in 52.6656ms
+2022-05-10 09:33:08.523 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlines (FlightBookingService.Airline)'
+2022-05-10 09:33:08.528 +05:30 [INF] Request finished in 83.3023ms 200 application/json; charset=utf-8
+2022-05-10 09:33:10.033 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAirlines  0
+2022-05-10 09:33:10.033 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllAirlineFlightsDetails  0
+2022-05-10 09:33:10.043 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAirlines (FlightBookingService.Airline)'
+2022-05-10 09:33:10.043 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlineFlightsDetails (FlightBookingService.Airline)'
+2022-05-10 09:33:10.047 +05:30 [INF] Route matched with {action = "GetAirlines", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[FlightBookingService.Airline.DTO.Response.GetAirlineResponse]] GetAirlines() on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 09:33:10.047 +05:30 [INF] Route matched with {action = "GetAllAirlineFlightsDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.AirlineFlightDetailsResponseList] GetAllAirlineFlightsDetails() on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 09:33:10.055 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 09:33:10.062 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 09:33:10.090 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[AirlineId], [a].[AirlineNmae] AS [AirlineName], [a].[Status]
+FROM [AirlineDetails] AS [a]
+WHERE ([a].[IsDelete] = 0) AND ([a].[Status] = 0)
+2022-05-10 09:33:10.100 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[FlightBookingService.Airline.DTO.Response.GetAirlineResponse, FlightBookingService.Airline, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-05-10 09:33:10.105 +05:30 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[FlightNumber], [a0].[AirlineNmae], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[TotalBusinessSeats], [a].[TotalNonBusinessSeats], [a].[BusTicketCost], [a].[NonBusTicketCost], [a].[FlightSeatRow], [a].[Meal]
+FROM [AirlineFlightDetails] AS [a]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([a0].[Status] = 0) AND ([a].[IsDelete] = 0)
+2022-05-10 09:33:10.111 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAirlines (FlightBookingService.Airline) in 59.7105ms
+2022-05-10 09:33:10.115 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAirlines (FlightBookingService.Airline)'
+2022-05-10 09:33:10.119 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.AirlineFlightDetailsResponseList'.
+2022-05-10 09:33:10.120 +05:30 [INF] Request finished in 85.9627ms 200 application/json; charset=utf-8
+2022-05-10 09:33:10.126 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlineFlightsDetails (FlightBookingService.Airline) in 74.9571ms
+2022-05-10 09:33:10.131 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlineFlightsDetails (FlightBookingService.Airline)'
+2022-05-10 09:33:10.139 +05:30 [INF] Request finished in 105.6791ms 200 application/json; charset=utf-8
+2022-05-10 09:34:25.418 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAirlines  0
+2022-05-10 09:34:25.418 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllAirlineFlightsDetails  0
+2022-05-10 09:34:25.425 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlineFlightsDetails (FlightBookingService.Airline)'
+2022-05-10 09:34:25.425 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAirlines (FlightBookingService.Airline)'
+2022-05-10 09:34:25.431 +05:30 [INF] Route matched with {action = "GetAllAirlineFlightsDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.AirlineFlightDetailsResponseList] GetAllAirlineFlightsDetails() on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 09:34:25.431 +05:30 [INF] Route matched with {action = "GetAirlines", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[FlightBookingService.Airline.DTO.Response.GetAirlineResponse]] GetAirlines() on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 09:34:25.443 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 09:34:25.443 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 09:34:25.466 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[FlightNumber], [a0].[AirlineNmae], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[TotalBusinessSeats], [a].[TotalNonBusinessSeats], [a].[BusTicketCost], [a].[NonBusTicketCost], [a].[FlightSeatRow], [a].[Meal]
+FROM [AirlineFlightDetails] AS [a]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([a0].[Status] = 0) AND ([a].[IsDelete] = 0)
+2022-05-10 09:34:25.466 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[AirlineId], [a].[AirlineNmae] AS [AirlineName], [a].[Status]
+FROM [AirlineDetails] AS [a]
+WHERE ([a].[IsDelete] = 0) AND ([a].[Status] = 0)
+2022-05-10 09:34:25.475 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.AirlineFlightDetailsResponseList'.
+2022-05-10 09:34:25.475 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[FlightBookingService.Airline.DTO.Response.GetAirlineResponse, FlightBookingService.Airline, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-05-10 09:34:25.486 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlineFlightsDetails (FlightBookingService.Airline) in 48.3471ms
+2022-05-10 09:34:25.486 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAirlines (FlightBookingService.Airline) in 45.0884ms
+2022-05-10 09:34:25.497 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlineFlightsDetails (FlightBookingService.Airline)'
+2022-05-10 09:34:25.498 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAirlines (FlightBookingService.Airline)'
+2022-05-10 09:34:25.501 +05:30 [INF] Request finished in 83.1818ms 200 application/json; charset=utf-8
+2022-05-10 09:34:25.503 +05:30 [INF] Request finished in 85.4802ms 200 application/json; charset=utf-8
+2022-05-10 11:03:28.516 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2022-05-10 11:03:28.545 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/index.html  
+2022-05-10 11:03:28.606 +05:30 [INF] Hosting environment: Development
+2022-05-10 11:03:28.609 +05:30 [INF] Content root path: D:\Study\FlightBooking\FlightBookingAPIGateway\FlightBookingService.Airline
+2022-05-10 11:03:28.620 +05:30 [WRN] Failed to determine the https port for redirect.
+2022-05-10 11:03:28.737 +05:30 [INF] Request finished in 198.8954ms 200 text/html;charset=utf-8
+2022-05-10 11:03:29.004 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/swagger/v1/swagger.json  
+2022-05-10 11:03:29.137 +05:30 [INF] Request finished in 133.5063ms 200 application/json;charset=utf-8
+2022-05-10 11:05:43.527 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:05:43.539 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:05:43.868 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:05:44.458 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketHistoryViaUserId/1  0
+2022-05-10 11:05:44.464 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:05:44.471 +05:30 [INF] Route matched with {action = "GetBookedTicketHistoryViaUserId", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketHistoryViaUserId(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:05:44.928 +05:30 [WRN] No type was specified for the decimal property 'BusTicketCost' on entity type 'AirlineFlightDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-10 11:05:44.940 +05:30 [WRN] No type was specified for the decimal property 'NonBusTicketCost' on entity type 'AirlineFlightDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-10 11:05:44.943 +05:30 [WRN] No type was specified for the decimal property 'TicketCost' on entity type 'AirlineFlightDetailsRawQueryModel'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-10 11:05:44.945 +05:30 [WRN] No type was specified for the decimal property 'TotalCosts' on entity type 'FlightBookingDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2022-05-10 11:05:45.038 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:05:45.038 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:05:45.864 +05:30 [INF] Executed DbCommand (51ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:05:45.864 +05:30 [INF] Executed DbCommand (51ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[UserId] = @__userId_0
+2022-05-10 11:05:45.896 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:05:45.896 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:05:45.917 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 2044.1454ms
+2022-05-10 11:05:45.917 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline) in 1440.6546ms
+2022-05-10 11:05:45.922 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:05:45.922 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:05:45.928 +05:30 [INF] Request finished in 2402.7464ms 200 application/json; charset=utf-8
+2022-05-10 11:05:45.928 +05:30 [INF] Request finished in 1470.5306ms 200 application/json; charset=utf-8
+2022-05-10 11:05:50.303 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllAirlines  0
+2022-05-10 11:05:50.309 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlines (FlightBookingService.Airline)'
+2022-05-10 11:05:50.319 +05:30 [INF] Route matched with {action = "GetAllAirlines", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[FlightBookingService.Airline.DTO.Response.GetAirlineResponse]] GetAllAirlines() on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:05:50.350 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:05:50.369 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[AirlineId], [a].[AirlineNmae] AS [AirlineName], [a].[Status]
+FROM [AirlineDetails] AS [a]
+WHERE [a].[IsDelete] = 0
+2022-05-10 11:05:50.373 +05:30 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[FlightBookingService.Airline.DTO.Response.GetAirlineResponse, FlightBookingService.Airline, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2022-05-10 11:05:50.377 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlines (FlightBookingService.Airline) in 52.1523ms
+2022-05-10 11:05:50.379 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllAirlines (FlightBookingService.Airline)'
+2022-05-10 11:05:50.381 +05:30 [INF] Request finished in 77.2939ms 200 application/json; charset=utf-8
+2022-05-10 11:05:52.484 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketHistoryViaUserId/1  0
+2022-05-10 11:05:52.487 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:05:52.492 +05:30 [INF] Route matched with {action = "GetBookedTicketHistoryViaUserId", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketHistoryViaUserId(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:05:52.495 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:05:52.508 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[UserId] = @__userId_0
+2022-05-10 11:05:52.548 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:05:52.551 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline) in 57.2213ms
+2022-05-10 11:05:52.553 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:05:52.556 +05:30 [INF] Request finished in 71.9048ms 200 application/json; charset=utf-8
+2022-05-10 11:05:53.504 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:05:53.543 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:05:53.549 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:05:53.554 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:05:53.742 +05:30 [INF] Executed DbCommand (182ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:05:53.747 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:05:53.750 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 197.8646ms
+2022-05-10 11:05:53.751 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:05:53.754 +05:30 [INF] Request finished in 249.458ms 200 application/json; charset=utf-8
+2022-05-10 11:06:13.421 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketDetails/11P0DM43J54G  0
+2022-05-10 11:06:13.424 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:06:13.432 +05:30 [INF] Route matched with {action = "GetBookedTicketDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketDetails(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:06:13.441 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:06:13.501 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__pnr_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae], [u].[UserName], [u].[UserEmail], [u].[Age], CASE
+    WHEN [u].[Gender] = 0 THEN N'Male'
+    ELSE N'Female'
+END, [u].[Meal], [u].[SeatNumber], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[BusTicketCost], [a].[NonBusTicketCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END, [f].[ClassStatus]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [UserBookingDetails] AS [u] ON [f].[FlightBookingId] = [u].[FlightBookingId]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[PNR] = @__pnr_0
+2022-05-10 11:06:13.504 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:06:13.507 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline) in 72.7481ms
+2022-05-10 11:06:13.509 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:06:13.511 +05:30 [INF] Request finished in 89.2899ms 200 application/json; charset=utf-8
+2022-05-10 11:06:23.078 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketHistoryViaUserId/1  0
+2022-05-10 11:06:23.081 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:06:23.083 +05:30 [INF] Route matched with {action = "GetBookedTicketHistoryViaUserId", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketHistoryViaUserId(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:06:23.087 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:06:23.098 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[UserId] = @__userId_0
+2022-05-10 11:06:23.102 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:06:23.105 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline) in 19.3967ms
+2022-05-10 11:06:23.110 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:06:23.113 +05:30 [INF] Request finished in 34.7359ms 200 application/json; charset=utf-8
+2022-05-10 11:06:24.289 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:06:24.295 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:06:24.298 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:06:24.302 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:06:24.315 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:06:24.320 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:06:24.325 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 25.2942ms
+2022-05-10 11:06:24.329 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:06:24.333 +05:30 [INF] Request finished in 43.705ms 200 application/json; charset=utf-8
+2022-05-10 11:06:36.808 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketDetails/COABDIOHQB3V  0
+2022-05-10 11:06:36.811 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:06:36.813 +05:30 [INF] Route matched with {action = "GetBookedTicketDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketDetails(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:06:36.817 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:06:36.829 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__pnr_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae], [u].[UserName], [u].[UserEmail], [u].[Age], CASE
+    WHEN [u].[Gender] = 0 THEN N'Male'
+    ELSE N'Female'
+END, [u].[Meal], [u].[SeatNumber], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[BusTicketCost], [a].[NonBusTicketCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END, [f].[ClassStatus]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [UserBookingDetails] AS [u] ON [f].[FlightBookingId] = [u].[FlightBookingId]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[PNR] = @__pnr_0
+2022-05-10 11:06:36.831 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:06:36.834 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline) in 18.7592ms
+2022-05-10 11:06:36.836 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:06:36.839 +05:30 [INF] Request finished in 29.9008ms 200 application/json; charset=utf-8
+2022-05-10 11:09:29.405 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:09:29.422 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:09:29.473 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:09:29.706 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:09:29.728 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:09:29.733 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:09:29.741 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 264.9352ms
+2022-05-10 11:09:29.748 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:09:29.751 +05:30 [INF] Request finished in 364.6928ms 200 application/json; charset=utf-8
+2022-05-10 11:12:04.712 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:12:04.714 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:12:04.718 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:12:04.721 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:12:04.730 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:12:04.734 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:12:04.739 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 18.7684ms
+2022-05-10 11:12:04.743 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:12:04.745 +05:30 [INF] Request finished in 35.4138ms 200 application/json; charset=utf-8
+2022-05-10 11:12:06.286 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketDetails/COABDIOHQB3V  0
+2022-05-10 11:12:06.288 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:12:06.291 +05:30 [INF] Route matched with {action = "GetBookedTicketDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketDetails(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:12:06.295 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:12:06.306 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__pnr_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae], [u].[UserName], [u].[UserEmail], [u].[Age], CASE
+    WHEN [u].[Gender] = 0 THEN N'Male'
+    ELSE N'Female'
+END, [u].[Meal], [u].[SeatNumber], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[BusTicketCost], [a].[NonBusTicketCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END, [f].[ClassStatus]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [UserBookingDetails] AS [u] ON [f].[FlightBookingId] = [u].[FlightBookingId]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[PNR] = @__pnr_0
+2022-05-10 11:12:06.334 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:12:06.338 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline) in 44.8487ms
+2022-05-10 11:12:06.340 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:12:06.342 +05:30 [INF] Request finished in 55.9926ms 200 application/json; charset=utf-8
+2022-05-10 11:13:32.897 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketHistoryViaUserId/1  0
+2022-05-10 11:13:32.929 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:13:32.935 +05:30 [INF] Route matched with {action = "GetBookedTicketHistoryViaUserId", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketHistoryViaUserId(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:13:33.126 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:13:33.363 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:13:33.368 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:13:33.371 +05:30 [INF] Executed DbCommand (210ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[UserId] = @__userId_0
+2022-05-10 11:13:33.372 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:13:33.377 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:13:33.410 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:13:33.411 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline) in 472.3202ms
+2022-05-10 11:13:33.442 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:13:33.444 +05:30 [INF] Request finished in 560.3327ms 200 application/json; charset=utf-8
+2022-05-10 11:13:33.455 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:13:33.461 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:13:33.465 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 88.8438ms
+2022-05-10 11:13:33.468 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:13:33.471 +05:30 [INF] Request finished in 108.0406ms 200 application/json; charset=utf-8
+2022-05-10 11:13:35.520 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketDetails/AP9G8WD1BKDM  0
+2022-05-10 11:13:35.523 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:13:35.525 +05:30 [INF] Route matched with {action = "GetBookedTicketDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketDetails(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:13:35.529 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:13:35.544 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__pnr_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae], [u].[UserName], [u].[UserEmail], [u].[Age], CASE
+    WHEN [u].[Gender] = 0 THEN N'Male'
+    ELSE N'Female'
+END, [u].[Meal], [u].[SeatNumber], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[BusTicketCost], [a].[NonBusTicketCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END, [f].[ClassStatus]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [UserBookingDetails] AS [u] ON [f].[FlightBookingId] = [u].[FlightBookingId]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[PNR] = @__pnr_0
+2022-05-10 11:13:35.548 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:13:35.552 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline) in 24.8441ms
+2022-05-10 11:13:35.554 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:13:35.556 +05:30 [INF] Request finished in 36.4471ms 200 application/json; charset=utf-8
+2022-05-10 11:13:44.713 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketHistoryViaUserId/1  0
+2022-05-10 11:13:44.717 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:13:44.722 +05:30 [INF] Route matched with {action = "GetBookedTicketHistoryViaUserId", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketHistoryViaUserId(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:13:44.727 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:13:44.753 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[UserId] = @__userId_0
+2022-05-10 11:13:44.756 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:13:44.759 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline) in 33.2001ms
+2022-05-10 11:13:44.762 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:13:44.766 +05:30 [INF] Request finished in 52.418ms 200 application/json; charset=utf-8
+2022-05-10 11:13:46.486 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:13:46.497 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:13:46.500 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:13:46.507 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:13:46.517 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:13:46.521 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:13:46.524 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 19.2405ms
+2022-05-10 11:13:46.527 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:13:46.531 +05:30 [INF] Request finished in 44.81ms 200 application/json; charset=utf-8
+2022-05-10 11:13:47.830 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketDetails/COABDIOHQB3V  0
+2022-05-10 11:13:47.834 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:13:47.836 +05:30 [INF] Route matched with {action = "GetBookedTicketDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketDetails(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:13:47.839 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:13:47.849 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__pnr_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae], [u].[UserName], [u].[UserEmail], [u].[Age], CASE
+    WHEN [u].[Gender] = 0 THEN N'Male'
+    ELSE N'Female'
+END, [u].[Meal], [u].[SeatNumber], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[BusTicketCost], [a].[NonBusTicketCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END, [f].[ClassStatus]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [UserBookingDetails] AS [u] ON [f].[FlightBookingId] = [u].[FlightBookingId]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[PNR] = @__pnr_0
+2022-05-10 11:13:47.852 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:13:47.855 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline) in 17.1629ms
+2022-05-10 11:13:47.857 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:13:47.859 +05:30 [INF] Request finished in 29.3484ms 200 application/json; charset=utf-8
+2022-05-10 11:14:45.286 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketHistoryViaUserId/1  0
+2022-05-10 11:14:45.291 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:14:45.296 +05:30 [INF] Route matched with {action = "GetBookedTicketHistoryViaUserId", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketHistoryViaUserId(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:14:45.301 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:14:45.314 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[UserId] = @__userId_0
+2022-05-10 11:14:45.317 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:14:45.320 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline) in 21.8192ms
+2022-05-10 11:14:45.323 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:14:45.325 +05:30 [INF] Request finished in 39.3706ms 200 application/json; charset=utf-8
+2022-05-10 11:14:46.119 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:14:46.122 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:14:46.125 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:14:46.131 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:14:46.142 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:14:46.146 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:14:46.153 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 22.2964ms
+2022-05-10 11:14:46.158 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:14:46.162 +05:30 [INF] Request finished in 42.6607ms 200 application/json; charset=utf-8
+2022-05-10 11:14:47.535 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketDetails/COABDIOHQB3V  0
+2022-05-10 11:14:47.537 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:14:47.539 +05:30 [INF] Route matched with {action = "GetBookedTicketDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketDetails(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:15:06.102 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:15:06.505 +05:30 [INF] Executed DbCommand (56ms) [Parameters=[@__pnr_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae], [u].[UserName], [u].[UserEmail], [u].[Age], CASE
+    WHEN [u].[Gender] = 0 THEN N'Male'
+    ELSE N'Female'
+END, [u].[Meal], [u].[SeatNumber], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[BusTicketCost], [a].[NonBusTicketCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END, [f].[ClassStatus], [f].[PNR]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [UserBookingDetails] AS [u] ON [f].[FlightBookingId] = [u].[FlightBookingId]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[PNR] = @__pnr_0
+2022-05-10 11:15:22.748 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:15:22.751 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline) in 35210.4849ms
+2022-05-10 11:15:22.754 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:15:22.757 +05:30 [INF] Request finished in 35221.4562ms 200 application/json; charset=utf-8
+2022-05-10 11:16:06.755 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketHistoryViaUserId/1  0
+2022-05-10 11:16:06.760 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:16:06.763 +05:30 [INF] Route matched with {action = "GetBookedTicketHistoryViaUserId", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketHistoryViaUserId(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:16:06.769 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:16:06.785 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[UserId] = @__userId_0
+2022-05-10 11:16:06.788 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:16:06.791 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline) in 25.9699ms
+2022-05-10 11:16:06.793 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:16:06.795 +05:30 [INF] Request finished in 43.1137ms 200 application/json; charset=utf-8
+2022-05-10 11:16:07.542 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:16:07.545 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:16:07.548 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:16:07.554 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:16:07.564 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:16:07.568 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:16:07.571 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 20.032ms
+2022-05-10 11:16:07.577 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:16:07.579 +05:30 [INF] Request finished in 36.6353ms 200 application/json; charset=utf-8
+2022-05-10 11:16:09.226 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketDetails/COABDIOHQB3V  0
+2022-05-10 11:16:09.230 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:16:09.234 +05:30 [INF] Route matched with {action = "GetBookedTicketDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketDetails(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:16:13.585 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:16:13.597 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__pnr_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae], [u].[UserName], [u].[UserEmail], [u].[Age], CASE
+    WHEN [u].[Gender] = 0 THEN N'Male'
+    ELSE N'Female'
+END, [u].[Meal], [u].[SeatNumber], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[BusTicketCost], [a].[NonBusTicketCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END, [f].[ClassStatus], [f].[PNR]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [UserBookingDetails] AS [u] ON [f].[FlightBookingId] = [u].[FlightBookingId]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[PNR] = @__pnr_0
+2022-05-10 11:16:13.600 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:16:13.603 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline) in 4363.8238ms
+2022-05-10 11:16:13.606 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:16:13.609 +05:30 [INF] Request finished in 4382.6788ms 200 application/json; charset=utf-8
+2022-05-10 11:16:13.615 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:16:13.619 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:16:13.621 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:16:13.624 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:16:13.631 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:16:13.634 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:16:13.637 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 13.8065ms
+2022-05-10 11:16:13.639 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:16:13.642 +05:30 [INF] Request finished in 25.8123ms 200 application/json; charset=utf-8
+2022-05-10 11:16:16.536 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:16:16.539 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:16:16.542 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:16:16.546 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:16:17.154 +05:30 [INF] Executed DbCommand (604ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:16:17.157 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:16:17.160 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 616.04ms
+2022-05-10 11:16:17.163 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:16:17.165 +05:30 [INF] Request finished in 628.9344ms 200 application/json; charset=utf-8
+2022-05-10 11:16:18.325 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketDetails/COABDIOHQB3V  0
+2022-05-10 11:16:18.327 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:16:18.332 +05:30 [INF] Route matched with {action = "GetBookedTicketDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketDetails(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:16:18.336 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:16:18.349 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__pnr_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae], [u].[UserName], [u].[UserEmail], [u].[Age], CASE
+    WHEN [u].[Gender] = 0 THEN N'Male'
+    ELSE N'Female'
+END, [u].[Meal], [u].[SeatNumber], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[BusTicketCost], [a].[NonBusTicketCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END, [f].[ClassStatus], [f].[PNR]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [UserBookingDetails] AS [u] ON [f].[FlightBookingId] = [u].[FlightBookingId]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[PNR] = @__pnr_0
+2022-05-10 11:16:18.354 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:16:18.357 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline) in 22.2964ms
+2022-05-10 11:16:18.359 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:16:18.361 +05:30 [INF] Request finished in 36.0938ms 200 application/json; charset=utf-8
+2022-05-10 11:16:36.768 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:16:36.772 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:16:36.774 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:16:36.777 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:16:37.238 +05:30 [INF] Executed DbCommand (456ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:16:37.243 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:16:37.246 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 469.8537ms
+2022-05-10 11:16:37.249 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:16:37.253 +05:30 [INF] Request finished in 485.3104ms 200 application/json; charset=utf-8
+2022-05-10 11:16:39.911 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:16:39.914 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:16:39.918 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:16:39.922 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:16:39.932 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:16:39.937 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:16:39.939 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 18.3002ms
+2022-05-10 11:16:39.941 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:16:39.943 +05:30 [INF] Request finished in 32.0994ms 200 application/json; charset=utf-8
+2022-05-10 11:16:41.511 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketDetails/COABDIOHQB3V  0
+2022-05-10 11:16:41.513 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:16:41.515 +05:30 [INF] Route matched with {action = "GetBookedTicketDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketDetails(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:16:41.518 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:16:41.552 +05:30 [INF] Executed DbCommand (29ms) [Parameters=[@__pnr_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae], [u].[UserName], [u].[UserEmail], [u].[Age], CASE
+    WHEN [u].[Gender] = 0 THEN N'Male'
+    ELSE N'Female'
+END, [u].[Meal], [u].[SeatNumber], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[BusTicketCost], [a].[NonBusTicketCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END, [f].[ClassStatus], [f].[PNR]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [UserBookingDetails] AS [u] ON [f].[FlightBookingId] = [u].[FlightBookingId]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[PNR] = @__pnr_0
+2022-05-10 11:16:41.556 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:16:41.559 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline) in 41.5219ms
+2022-05-10 11:16:41.561 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:16:41.564 +05:30 [INF] Request finished in 52.9165ms 200 application/json; charset=utf-8
+2022-05-10 11:17:27.857 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:17:27.864 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:17:27.867 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:17:27.876 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:17:27.924 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:17:27.928 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:17:27.931 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 58.3811ms
+2022-05-10 11:17:27.933 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:17:27.938 +05:30 [INF] Request finished in 80.9148ms 200 application/json; charset=utf-8
+2022-05-10 11:17:29.643 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:17:29.645 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:17:29.647 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:17:29.650 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:17:29.662 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:17:29.664 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:17:29.666 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 17.0293ms
+2022-05-10 11:17:29.668 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:17:29.670 +05:30 [INF] Request finished in 27.1162ms 200 application/json; charset=utf-8
+2022-05-10 11:17:31.154 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketDetails/11P0DM43J54G  0
+2022-05-10 11:17:31.156 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:17:31.158 +05:30 [INF] Route matched with {action = "GetBookedTicketDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketDetails(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:17:31.165 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:17:31.174 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__pnr_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae], [u].[UserName], [u].[UserEmail], [u].[Age], CASE
+    WHEN [u].[Gender] = 0 THEN N'Male'
+    ELSE N'Female'
+END, [u].[Meal], [u].[SeatNumber], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[BusTicketCost], [a].[NonBusTicketCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END, [f].[ClassStatus], [f].[PNR]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [UserBookingDetails] AS [u] ON [f].[FlightBookingId] = [u].[FlightBookingId]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[PNR] = @__pnr_0
+2022-05-10 11:17:31.176 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:17:31.180 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline) in 15.5521ms
+2022-05-10 11:17:31.182 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:17:31.184 +05:30 [INF] Request finished in 29.4238ms 200 application/json; charset=utf-8
+2022-05-10 11:17:43.935 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:17:43.937 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:17:43.940 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:17:43.942 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:17:43.982 +05:30 [INF] Executed DbCommand (36ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:17:43.984 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:17:43.987 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 45.0807ms
+2022-05-10 11:17:43.991 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:17:43.993 +05:30 [INF] Request finished in 58.031ms 200 application/json; charset=utf-8
+2022-05-10 11:17:45.120 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:17:45.122 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:17:45.126 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:17:45.128 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:17:45.136 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:17:45.139 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:17:45.144 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 16.2517ms
+2022-05-10 11:17:45.147 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:17:45.150 +05:30 [INF] Request finished in 29.6623ms 200 application/json; charset=utf-8
+2022-05-10 11:17:46.351 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketDetails/COABDIOHQB3V  0
+2022-05-10 11:17:46.353 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:17:46.354 +05:30 [INF] Route matched with {action = "GetBookedTicketDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketDetails(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:17:46.356 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:17:46.365 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__pnr_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae], [u].[UserName], [u].[UserEmail], [u].[Age], CASE
+    WHEN [u].[Gender] = 0 THEN N'Male'
+    ELSE N'Female'
+END, [u].[Meal], [u].[SeatNumber], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[BusTicketCost], [a].[NonBusTicketCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END, [f].[ClassStatus], [f].[PNR]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [UserBookingDetails] AS [u] ON [f].[FlightBookingId] = [u].[FlightBookingId]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[PNR] = @__pnr_0
+2022-05-10 11:17:46.367 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:17:46.369 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline) in 13.787ms
+2022-05-10 11:17:46.371 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:17:46.373 +05:30 [INF] Request finished in 22.2019ms 200 application/json; charset=utf-8
+2022-05-10 11:17:57.402 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:17:57.405 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:17:57.407 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:17:57.411 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:17:58.015 +05:30 [INF] Executed DbCommand (591ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:17:58.017 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:17:58.020 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 609.4351ms
+2022-05-10 11:17:58.022 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:17:58.027 +05:30 [INF] Request finished in 624.8787ms 200 application/json; charset=utf-8
+2022-05-10 11:17:59.427 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketHistoryViaUserId/1  0
+2022-05-10 11:17:59.430 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:17:59.432 +05:30 [INF] Route matched with {action = "GetBookedTicketHistoryViaUserId", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketHistoryViaUserId(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:17:59.435 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:17:59.448 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[UserId] = @__userId_0
+2022-05-10 11:17:59.451 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:17:59.454 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline) in 19.033ms
+2022-05-10 11:17:59.456 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:17:59.459 +05:30 [INF] Request finished in 31.8879ms 200 application/json; charset=utf-8
+2022-05-10 11:18:00.184 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:18:00.186 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:18:00.188 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:18:00.194 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:18:00.205 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:18:00.209 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:18:00.212 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 19.9853ms
+2022-05-10 11:18:00.214 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:18:00.216 +05:30 [INF] Request finished in 32.868ms 200 application/json; charset=utf-8
+2022-05-10 11:18:01.648 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketDetails/11P0DM43J54G  0
+2022-05-10 11:18:01.649 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:18:01.651 +05:30 [INF] Route matched with {action = "GetBookedTicketDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketDetails(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:18:01.653 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:18:01.663 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__pnr_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae], [u].[UserName], [u].[UserEmail], [u].[Age], CASE
+    WHEN [u].[Gender] = 0 THEN N'Male'
+    ELSE N'Female'
+END, [u].[Meal], [u].[SeatNumber], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[BusTicketCost], [a].[NonBusTicketCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END, [f].[ClassStatus], [f].[PNR]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [UserBookingDetails] AS [u] ON [f].[FlightBookingId] = [u].[FlightBookingId]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[PNR] = @__pnr_0
+2022-05-10 11:18:01.665 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:18:01.667 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline) in 13.7327ms
+2022-05-10 11:18:01.669 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:18:01.671 +05:30 [INF] Request finished in 23.4385ms 200 application/json; charset=utf-8
+2022-05-10 11:18:13.364 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:18:13.366 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:18:13.368 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:18:13.371 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:18:13.381 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:18:13.383 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:18:13.388 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 17.5375ms
+2022-05-10 11:18:13.390 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:18:13.393 +05:30 [INF] Request finished in 29.2971ms 200 application/json; charset=utf-8
+2022-05-10 11:18:14.882 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:18:14.884 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:18:14.886 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:18:14.888 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:18:14.898 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:18:14.903 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:18:14.905 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 17.9929ms
+2022-05-10 11:18:14.908 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:18:14.912 +05:30 [INF] Request finished in 30.249ms 200 application/json; charset=utf-8
+2022-05-10 11:18:16.330 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketDetails/COABDIOHQB3V  0
+2022-05-10 11:18:16.333 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:18:16.334 +05:30 [INF] Route matched with {action = "GetBookedTicketDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketDetails(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:18:16.337 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:18:16.345 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__pnr_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae], [u].[UserName], [u].[UserEmail], [u].[Age], CASE
+    WHEN [u].[Gender] = 0 THEN N'Male'
+    ELSE N'Female'
+END, [u].[Meal], [u].[SeatNumber], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[BusTicketCost], [a].[NonBusTicketCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END, [f].[ClassStatus], [f].[PNR]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [UserBookingDetails] AS [u] ON [f].[FlightBookingId] = [u].[FlightBookingId]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[PNR] = @__pnr_0
+2022-05-10 11:18:16.348 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:18:16.350 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline) in 13.7735ms
+2022-05-10 11:18:16.352 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:18:16.354 +05:30 [INF] Request finished in 23.2974ms 200 application/json; charset=utf-8
+2022-05-10 11:18:31.005 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:18:31.007 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:18:31.009 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:18:31.012 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:18:31.020 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:18:31.025 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:18:31.028 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 16.4703ms
+2022-05-10 11:18:31.031 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:18:31.033 +05:30 [INF] Request finished in 28.4119ms 200 application/json; charset=utf-8
+2022-05-10 11:18:32.257 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketHistoryViaUserId/1  0
+2022-05-10 11:18:32.263 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:18:32.265 +05:30 [INF] Route matched with {action = "GetBookedTicketHistoryViaUserId", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketHistoryViaUserId(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:18:32.268 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:18:32.456 +05:30 [INF] Executed DbCommand (183ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[UserId] = @__userId_0
+2022-05-10 11:18:32.458 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:18:32.462 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline) in 194.2667ms
+2022-05-10 11:18:32.463 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:18:32.465 +05:30 [INF] Request finished in 207.9527ms 200 application/json; charset=utf-8
+2022-05-10 11:18:32.948 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetAllBookedTicket/1  0
+2022-05-10 11:18:32.950 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:18:32.952 +05:30 [INF] Route matched with {action = "GetAllBookedTicket", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetAllBookedTicket(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:18:32.956 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:18:33.185 +05:30 [INF] Executed DbCommand (226ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE ([f].[IsDelete] = 0) AND ([f].[UserId] = @__userId_0)
+2022-05-10 11:18:33.187 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:18:33.190 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline) in 235.3985ms
+2022-05-10 11:18:33.192 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetAllBookedTicket (FlightBookingService.Airline)'
+2022-05-10 11:18:33.194 +05:30 [INF] Request finished in 246.3408ms 200 application/json; charset=utf-8
+2022-05-10 11:18:34.270 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketDetails/11P0DM43J54G  0
+2022-05-10 11:18:34.272 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:18:34.274 +05:30 [INF] Route matched with {action = "GetBookedTicketDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketDetails(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:18:34.276 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:18:34.286 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__pnr_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae], [u].[UserName], [u].[UserEmail], [u].[Age], CASE
+    WHEN [u].[Gender] = 0 THEN N'Male'
+    ELSE N'Female'
+END, [u].[Meal], [u].[SeatNumber], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[BusTicketCost], [a].[NonBusTicketCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END, [f].[ClassStatus], [f].[PNR]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [UserBookingDetails] AS [u] ON [f].[FlightBookingId] = [u].[FlightBookingId]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[PNR] = @__pnr_0
+2022-05-10 11:18:34.288 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:18:34.290 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline) in 14.5229ms
+2022-05-10 11:18:34.292 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:18:34.294 +05:30 [INF] Request finished in 23.9947ms 200 application/json; charset=utf-8
+2022-05-10 11:18:47.972 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketHistoryViaUserId/1  0
+2022-05-10 11:18:47.974 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:18:47.976 +05:30 [INF] Route matched with {action = "GetBookedTicketHistoryViaUserId", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketHistoryViaUserId(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:18:47.982 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:18:47.990 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[UserId] = @__userId_0
+2022-05-10 11:18:47.992 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:18:47.994 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline) in 12.5162ms
+2022-05-10 11:18:47.999 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:18:48.001 +05:30 [INF] Request finished in 29.2248ms 200 application/json; charset=utf-8
+2022-05-10 11:18:57.596 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketDetails/COABDIOHQB3V  0
+2022-05-10 11:18:57.599 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:18:57.600 +05:30 [INF] Route matched with {action = "GetBookedTicketDetails", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketDetails(System.String) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:18:57.603 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:18:57.613 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__pnr_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae], [u].[UserName], [u].[UserEmail], [u].[Age], CASE
+    WHEN [u].[Gender] = 0 THEN N'Male'
+    ELSE N'Female'
+END, [u].[Meal], [u].[SeatNumber], [a].[FromPlaceName], [a].[ToPlaceName], [a].[FlightStartDateTime], [a].[FlightToDateTime], [a].[BusTicketCost], [a].[NonBusTicketCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END, [f].[ClassStatus], [f].[PNR]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [UserBookingDetails] AS [u] ON [f].[FlightBookingId] = [u].[FlightBookingId]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[PNR] = @__pnr_0
+2022-05-10 11:18:57.615 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:18:57.616 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline) in 14.0812ms
+2022-05-10 11:18:57.618 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketDetails (FlightBookingService.Airline)'
+2022-05-10 11:18:57.620 +05:30 [INF] Request finished in 24.0906ms 200 application/json; charset=utf-8
+2022-05-10 11:19:03.167 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:38221/api/Airline/GetBookedTicketHistoryViaUserId/1  0
+2022-05-10 11:19:03.169 +05:30 [INF] Executing endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:19:03.171 +05:30 [INF] Route matched with {action = "GetBookedTicketHistoryViaUserId", controller = "Airline"}. Executing controller action with signature System.Threading.Tasks.Task`1[FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList] GetBookedTicketHistoryViaUserId(Int32) on controller FlightBookingService.Airline.Controllers.AirlineController (FlightBookingService.Airline).
+2022-05-10 11:19:03.174 +05:30 [INF] Entity Framework Core 5.0.16 initialized 'AirlineServiceContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2022-05-10 11:19:03.501 +05:30 [INF] Executed DbCommand (324ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[FlightNumber], [a0].[AirlineNmae] AS [AirlineName], [a].[FromPlaceName] AS [FromPlace], [a].[ToPlaceName] AS [ToPlace], [a].[FlightStartDateTime] AS [DepartureTime], [a].[FlightToDateTime] AS [ArrivalTime], [f].[TotalCosts] AS [TotalCost], CASE
+    WHEN [f].[Journey] = 0 THEN N'One Way'
+    ELSE N'Two Way'
+END AS [Journey], [f].[ClassStatus], CASE
+    WHEN [a].[FlightStartDateTime] <= GETDATE() THEN CAST(0 AS bit)
+    ELSE CAST(1 AS bit)
+END AS [CancalStatus], [f].[PNR] AS [PnrNumber], [f].[TotalBookSeats] AS [TotalSeats]
+FROM [FlightBookingDetails] AS [f]
+INNER JOIN [AirlineFlightDetails] AS [a] ON [f].[FlightId] = [a].[Id]
+INNER JOIN [AirlineDetails] AS [a0] ON [a].[AirlineId] = [a0].[AirlineId]
+WHERE [f].[UserId] = @__userId_0
+2022-05-10 11:19:03.504 +05:30 [INF] Executing ObjectResult, writing value of type 'FlightBookingService.Airline.DTO.Response.BookedTicketDetailsResponseList'.
+2022-05-10 11:19:03.506 +05:30 [INF] Executed action FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline) in 332.4653ms
+2022-05-10 11:19:03.508 +05:30 [INF] Executed endpoint 'FlightBookingService.Airline.Controllers.AirlineController.GetBookedTicketHistoryViaUserId (FlightBookingService.Airline)'
+2022-05-10 11:19:03.509 +05:30 [INF] Request finished in 342.7747ms 200 application/json; charset=utf-8

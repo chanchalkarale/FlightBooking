@@ -82,8 +82,8 @@ namespace FlightBookingService.Airline.Repository.Services
                   AirlineId=airlineFlightDetailsRequest.AirlineId,
                   FromPlaceName=airlineFlightDetailsRequest.FromPlaceName,
                   ToPlaceName=airlineFlightDetailsRequest.ToPlaceName,
-                  FlightStartDateTime=airlineFlightDetailsRequest.FlightStartDateTime.AddDays(1),
-                  FlightToDateTime=airlineFlightDetailsRequest.FlightToDateTime.AddDays(1),
+                  FlightStartDateTime=airlineFlightDetailsRequest.FlightStartDateTime,
+                  FlightToDateTime=airlineFlightDetailsRequest.FlightToDateTime,
                   TotalBusinessSeats=airlineFlightDetailsRequest.TotalBusinessSeats,
                   TotalNonBusinessSeats=airlineFlightDetailsRequest.TotalNonBusinessSeats,
                   BusTicketCost = airlineFlightDetailsRequest.BusTicketCost,
@@ -101,8 +101,8 @@ namespace FlightBookingService.Airline.Repository.Services
                 airlineDetails.AirlineId = airlineFlightDetailsRequest.AirlineId;
                 airlineDetails.FromPlaceName = airlineFlightDetailsRequest.FromPlaceName;
                 airlineDetails.ToPlaceName = airlineFlightDetailsRequest.ToPlaceName;
-                airlineDetails.FlightStartDateTime = airlineFlightDetailsRequest.FlightStartDateTime.AddDays(1);
-                airlineDetails.FlightToDateTime = airlineFlightDetailsRequest.FlightToDateTime.AddDays(1);
+                airlineDetails.FlightStartDateTime = airlineFlightDetailsRequest.FlightStartDateTime;
+                airlineDetails.FlightToDateTime = airlineFlightDetailsRequest.FlightToDateTime;
                 airlineDetails.TotalBusinessSeats = airlineFlightDetailsRequest.TotalBusinessSeats;
                 airlineDetails.TotalNonBusinessSeats = airlineFlightDetailsRequest.TotalNonBusinessSeats;
 
@@ -316,7 +316,8 @@ namespace FlightBookingService.Airline.Repository.Services
                                            BusTicketCost=ad.BusTicketCost,
                                            NonBusTicketCost=ad.NonBusTicketCost,
                                            Journey= fd.Journey==0?"One Way":"Two Way",
-                                           ClassStatus=fd.ClassStatus
+                                           ClassStatus=fd.ClassStatus,
+                                           PnrNumber=fd.PNR
                                        }
 
                                       ).ToListAsync();
@@ -646,8 +647,8 @@ namespace FlightBookingService.Airline.Repository.Services
                                         " AF.FromPlaceName,AF.ToPlaceName,AF.FlightStartDateTime," +
                                         " AF.FlightToDateTime,AF.NonBusTicketCost as TicketCost," +
                                         " AF.TotalBusinessSeats,AF.TotalNonBusinessSeats,AF.FlightSeatRow," +
-                                        " AF.Meal , '1' as ClassStatus FROM[FlightBooking].[dbo].[AirlineFlightDetails] as AF " +
-                                        " inner join[FlightBooking].[dbo].[AirlineDetails] as AD on AF.AirlineId = AD.AirlineId ";
+                                        " AF.Meal , '1' as ClassStatus FROM [dbo].[AirlineFlightDetails] as AF " +
+                                        " inner join [dbo].[AirlineDetails] as AD on AF.AirlineId = AD.AirlineId ";
             }
             else
             {
@@ -655,8 +656,8 @@ namespace FlightBookingService.Airline.Repository.Services
                                         " AF.FromPlaceName,AF.ToPlaceName,AF.FlightStartDateTime," +
                                         " AF.FlightToDateTime,AF.BusTicketCost as TicketCost," +
                                         " AF.TotalBusinessSeats,AF.TotalNonBusinessSeats,AF.FlightSeatRow," +
-                                        " AF.Meal , '2' as ClassStatus   FROM[FlightBooking].[dbo].[AirlineFlightDetails] as AF " +
-                                        " inner join[FlightBooking].[dbo].[AirlineDetails] as AD on AF.AirlineId = AD.AirlineId ";
+                                        " AF.Meal , '2' as ClassStatus   FROM [dbo].[AirlineFlightDetails] as AF " +
+                                        " inner join [dbo].[AirlineDetails] as AD on AF.AirlineId = AD.AirlineId ";
             }
             
 

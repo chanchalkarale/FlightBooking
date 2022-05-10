@@ -55,8 +55,7 @@ namespace FlightBookingService.Airline.Controllers
         }
 
 
-        [HttpPost, ActionName("Inventory")]
-        [HttpPost]
+        [HttpPost, ActionName("Inventory")] 
         public async Task<bool> Inventory([FromBody] AirlineFlightDetailsRequest airlineFlightDetailsRequest)
         {
             var result = await _airlineFlightDetailsServices.AddAirlineSchedule(airlineFlightDetailsRequest);
@@ -64,7 +63,7 @@ namespace FlightBookingService.Airline.Controllers
             return result;
         }
 
-        // GET api/<AirlineController>/5
+        
         [HttpGet("{searchText}"),ActionName("Search")]
         public async Task<AirlineFlightDetailsResponseList> Search(string searchText)
         {
@@ -72,8 +71,7 @@ namespace FlightBookingService.Airline.Controllers
         }
 
 
-        [HttpPost, ActionName("Booking")]
-        [HttpPost]
+        [HttpPost, ActionName("Booking")] 
         public async Task<bool> TicketBooking([FromBody] FlightBookingDetailsRequest flightBookingDetailsRequest)
             {
             var result = false;
@@ -82,7 +80,7 @@ namespace FlightBookingService.Airline.Controllers
         }
 
 
-        // GET api/<AirlineController>/5
+        
         [HttpGet("{pnr}")]
         public async Task<BookedTicketDetailsResponseList> GetBookedTicketDetails(string pnr)
         {
@@ -90,7 +88,7 @@ namespace FlightBookingService.Airline.Controllers
         }
          
 
-        // DELETE api/<AirlineController>/5
+         
         [HttpPatch]
         public async Task<bool> CancelTicket(string pnr)
         {
@@ -143,7 +141,7 @@ namespace FlightBookingService.Airline.Controllers
             return result;
         }
 
-        // GET api/<AirlineController>/5
+         
         [HttpGet, ActionName("GetAllAirlineFlightsDetails")]
         public async Task<AirlineFlightDetailsResponseList> GetAllAirlineFlightsDetails()
         {
@@ -165,7 +163,7 @@ namespace FlightBookingService.Airline.Controllers
             return result;
         }
 
-        // GET api/<AirlineController>/5
+         
         [HttpPost, ActionName("SearchFlights")]
         public async Task<List<AirlineFlightDetailsRawQueryModel>> SearchFlights(SearchFlightRequest searchFlightRequest)
         {
@@ -180,27 +178,24 @@ namespace FlightBookingService.Airline.Controllers
         }
 
 
-        // GET api/<AirlineController>/5
+       
         [HttpGet("{userId}")]
         public async Task<BookedTicketDetailsResponseList> GetAllBookedTicket(int userId)
         {
             return await _airlineFlightDetailsServices.GetAllBookedTicket(userId);
         }
-        // GET api/<AirlineController>/5
+        
         [HttpGet("{userId}")]
         public async Task<BookedTicketDetailsResponseList> GetBookedTicketHistoryViaUserId(int userId)
         {
             return await _airlineFlightDetailsServices.GetBookedTicketHistoryViaUserId(userId);
         }
+ 
 
-        //public async Task<FileResult> GetStudentAcademicReport2(int StudentID, int ReportSeq)
-        //{
-        //    var report = await _airlineFlightDetailsServices.GetAllDiscounts();
-        //    if (report == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return File(report.DiscountsResponsesLists, "application/pdf", "test.pdf");
-        //}
+        [HttpGet, ActionName("Test")]
+        public string Test()
+        {
+            return "hello API.";
+        }
     }
 }

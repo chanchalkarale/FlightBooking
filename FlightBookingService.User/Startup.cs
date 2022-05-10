@@ -35,7 +35,7 @@ namespace FlightBookingService.User
             services.AddCors(options =>
             {
                 options.AddPolicy(
-                    name: "CorsPolicy",
+                    name: "AllowOrigin",
                     builder => {
                         builder.AllowAnyOrigin()
                                 .AllowAnyMethod()
@@ -80,7 +80,7 @@ namespace FlightBookingService.User
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors("CorsPolicy");
+            app.UseCors("AllowOrigin");
             app.UseHttpsRedirection();
 
             app.UseRouting();
