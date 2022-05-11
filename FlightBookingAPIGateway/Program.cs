@@ -23,7 +23,8 @@ namespace FlightBookingAPIGateway
                     webBuilder.UseStartup<Startup>();
                 }).ConfigureAppConfiguration((hostingContext, config) =>
                 {
-                    config.AddJsonFile("OcelotConfiguration.json");
+                      //config.AddJsonFile("OcelotConfiguration.json");
+                    config.AddJsonFile("LocalOcelotConfig.json");
                 });
     }
 }

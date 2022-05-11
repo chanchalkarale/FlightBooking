@@ -95,7 +95,7 @@ namespace FlightBookingService.User.Controllers
 
         // POST api/<RegistrationController>
         [HttpPost, ActionName("register")]
-        [HttpPost]
+       
         public async Task<bool> Register([FromBody] UserRegistrationRequest userRegistrationRequest)
         {
             var result = await _userRegistrationServices.RegisterUser(userRegistrationRequest);

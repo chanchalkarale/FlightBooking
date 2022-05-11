@@ -165,7 +165,7 @@ namespace FlightBookingService.Airline.Controllers
 
          
         [HttpPost, ActionName("SearchFlights")]
-        public async Task<List<AirlineFlightDetailsRawQueryModel>> SearchFlights(SearchFlightRequest searchFlightRequest)
+        public async Task<List<AirlineFlightDetailsRawQueryModel>> SearchFlights([FromBody] SearchFlightRequest searchFlightRequest)
         {
             return await _airlineFlightDetailsServices.SearchFlights(searchFlightRequest);
         }
