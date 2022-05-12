@@ -50,12 +50,7 @@ namespace FlightBookingService.User.Controllers
             return Ok(token);
         }
 
-        // GET api/<RegistrationController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+ 
 
         [AllowAnonymous]
         [HttpPost, ActionName("Login")]
@@ -103,16 +98,6 @@ namespace FlightBookingService.User.Controllers
             return result;
         }
 
-        // PUT api/<RegistrationController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<RegistrationController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+     
     }
 }
