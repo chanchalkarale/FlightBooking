@@ -1,12 +1,10 @@
-using FlightBookingService.User.DataContext;
-using FlightBookingService.User.Repository.Interface;
-using FlightBookingService.User.Repository.Services;
+using AuthJWT.Repository.Interface;
+using AuthJWT.Repository.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -18,7 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlightBookingService.User
+namespace AuthJWT
 {
     public class Startup
     {
@@ -32,24 +30,7 @@ namespace FlightBookingService.User
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
-            {
-                options.AddPolicy(
-                    name: "AllowOrigin",
-                    builder => {
-                        builder.AllowAnyOrigin()
-                                .AllowAnyMethod()
-                                .AllowAnyHeader();
-                    });
-            });
-            services.AddControllers();
             services.AddSwaggerGen();
-            services.AddDbContext<UserServiceContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UserConnectionString")));
-
-            #region Register services
-            services.AddTransient<IUserRegistrationServices, UserRegistrationServices>();
-            #endregion
-             
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -70,7 +51,7 @@ namespace FlightBookingService.User
             });
             services.AddSingleton<IAuthManager>(
                 new AuthManager(Configuration.GetSection("JWTSettings:SecretKey").Value));
-             
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,10 +61,12 @@ namespace FlightBookingService.User
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors("AllowOrigin");
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
@@ -91,7 +74,6 @@ namespace FlightBookingService.User
             {
                 endpoints.MapControllers();
             });
-
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

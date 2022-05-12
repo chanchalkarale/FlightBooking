@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FlightBookingAPIGateway
+namespace AuthJWT
 {
     public class Program
     {
@@ -21,10 +21,6 @@ namespace FlightBookingAPIGateway
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                }).ConfigureAppConfiguration((hostingContext, config) =>
-                {
-                      //config.AddJsonFile("OcelotConfiguration.json");
-                    config.AddJsonFile("LocalOcelotConfig.json");
                 });
     }
 }

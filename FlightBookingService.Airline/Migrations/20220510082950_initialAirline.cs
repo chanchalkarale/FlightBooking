@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FlightBookingService.Airline.Migrations
 {
-    public partial class AirlineFirstMigration : Migration
+    public partial class initialAirline : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,6 +24,43 @@ namespace FlightBookingService.Airline.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "airlineFlightDetailsRawQueryModels",
+                columns: table => new
+                {
+                    FlightId = table.Column<int>(type: "int", nullable: false),
+                    FlightNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Airline = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FromPlaceName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ToPlaceName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FlightStartDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FlightToDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TotalBusinessSeats = table.Column<int>(type: "int", nullable: false),
+                    TotalNonBusinessSeats = table.Column<int>(type: "int", nullable: false),
+                    TicketCost = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ClassStatus = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Discounts",
+                columns: table => new
+                {
+                    DiscountId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DiscountCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DiscountCost = table.Column<int>(type: "int", nullable: false),
+                    ExpiryDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsDelete = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Discounts", x => x.DiscountId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "FlightBookingDetails",
                 columns: table => new
                 {
@@ -32,12 +69,13 @@ namespace FlightBookingService.Airline.Migrations
                     FlightId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     Journey = table.Column<int>(type: "int", nullable: false),
-                    OneWayCost = table.Column<double>(type: "float", nullable: false),
-                    TwoWayCost = table.Column<double>(type: "float", nullable: false),
+                    ClassStatus = table.Column<int>(type: "int", nullable: false),
+                    TotalCosts = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     TotalBookSeats = table.Column<int>(type: "int", nullable: false),
                     PNR = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDelete = table.Column<int>(type: "int", nullable: false)
+                    IsDelete = table.Column<int>(type: "int", nullable: false),
+                    DiscountId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -107,6 +145,12 @@ namespace FlightBookingService.Airline.Migrations
         {
             migrationBuilder.DropTable(
                 name: "AirlineFlightDetails");
+
+            migrationBuilder.DropTable(
+                name: "airlineFlightDetailsRawQueryModels");
+
+            migrationBuilder.DropTable(
+                name: "Discounts");
 
             migrationBuilder.DropTable(
                 name: "FlightBookingDetails");

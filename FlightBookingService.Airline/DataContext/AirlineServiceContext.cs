@@ -21,5 +21,15 @@ namespace FlightBookingService.User.DataContext
         public DbSet<UserBookingDetails> UserBookingDetails { get; set; }
         public DbSet<Discount> Discounts { get; set; }
 
+        
+        public DbSet<AirlineFlightDetailsRawQueryModel> airlineFlightDetailsRawQueryModels { get; set; }
+
+        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<AirlineFlightDetailsRawQueryModel>()
+                .HasNoKey();
+        }
+
     }
 }

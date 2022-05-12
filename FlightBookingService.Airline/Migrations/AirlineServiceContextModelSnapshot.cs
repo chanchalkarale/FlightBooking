@@ -99,6 +99,71 @@ namespace FlightBookingService.Airline.Migrations
                     b.ToTable("AirlineFlightDetails");
                 });
 
+            modelBuilder.Entity("FlightBookingService.Airline.Models.AirlineFlightDetailsRawQueryModel", b =>
+                {
+                    b.Property<string>("Airline")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClassStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FlightId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FlightNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FlightStartDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FlightToDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FromPlaceName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TicketCost")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ToPlaceName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TotalBusinessSeats")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalNonBusinessSeats")
+                        .HasColumnType("int");
+
+                    b.ToTable("airlineFlightDetailsRawQueryModels");
+                });
+
+            modelBuilder.Entity("FlightBookingService.Airline.Models.Discount", b =>
+                {
+                    b.Property<int>("DiscountId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DiscountCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DiscountCost")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ExpiryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IsDelete")
+                        .HasColumnType("int");
+
+                    b.HasKey("DiscountId");
+
+                    b.ToTable("Discounts");
+                });
+
             modelBuilder.Entity("FlightBookingService.Airline.Models.FlightBookingDetails", b =>
                 {
                     b.Property<int>("FlightBookingId")
@@ -106,8 +171,14 @@ namespace FlightBookingService.Airline.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("ClassStatus")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("DiscountId")
+                        .HasColumnType("int");
 
                     b.Property<int>("FlightId")
                         .HasColumnType("int");
@@ -118,17 +189,14 @@ namespace FlightBookingService.Airline.Migrations
                     b.Property<int>("Journey")
                         .HasColumnType("int");
 
-                    b.Property<double>("OneWayCost")
-                        .HasColumnType("float");
-
                     b.Property<string>("PNR")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TotalBookSeats")
                         .HasColumnType("int");
 
-                    b.Property<double>("TwoWayCost")
-                        .HasColumnType("float");
+                    b.Property<decimal>("TotalCosts")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");

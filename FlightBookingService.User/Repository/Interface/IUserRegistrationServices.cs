@@ -15,6 +15,6 @@ namespace FlightBookingService.User.Repository.Interface
         /// <returns></returns>
         Task<bool> RegisterUser(UserRegistrationRequest userRegistrationRequest);
 
-        Task<bool> Login(LoginRequest loginRequest);
+        int Login(LoginRequest loginRequest);
     }
 }

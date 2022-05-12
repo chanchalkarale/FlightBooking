@@ -2,31 +2,12 @@
   "ReRoutes": [
     {
 
-      "DownstreamPathTemplate": "/api/Airline/Test",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
-        }
-      ],
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "Bearer",
-      //  "AllowedScopes": []
-      //},
-      "UpstreamPathTemplate": "/Airline/Test",
-      "UpstreamHttpMethod": [ "GET" ],
-      "SwaggerKey": "airlines"
-
-    },
-    {
-
       "DownstreamPathTemplate": "/api/Airline/GetBookedTicketHistoryViaUserId",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -41,11 +22,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/GetAllBookedTicket",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -60,11 +41,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/CancelTicket",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -79,11 +60,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/GetDiscountUsingCode/{discountCode}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -98,11 +79,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/SearchFlights",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -117,11 +98,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/RemoveDiscount",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -136,11 +117,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/DeleteAirline",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -155,11 +136,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/RemoveFlight",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -174,11 +155,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/GetAllAirlineFlightsDetails",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -212,11 +193,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/register",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -231,11 +212,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/Inventory",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -250,11 +231,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/BlockUnblockAirline",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -269,11 +250,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/Search/{searchText}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -288,11 +269,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/Booking",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -307,11 +288,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/GetBookedTicketDetails/{pnr}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -326,11 +307,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/CancelTicket/{pnr}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -345,11 +326,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/GetBookedTicketHistory/{emailId}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -364,11 +345,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/{id}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -383,11 +364,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/AddDiscount",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -402,11 +383,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/GetAllDiscount",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -421,11 +402,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/GetAirlines",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -440,11 +421,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Airline/GetAllAirlines",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceairline20220510121025.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "38221"
         }
       ],
       "AuthenticationOptions": {
@@ -459,11 +440,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Registration/register",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceuser20220510143758.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "57768"
         }
       ],
       //"AuthenticationOptions": {
@@ -478,11 +459,11 @@
     {
 
       "DownstreamPathTemplate": "/api/Registration/login",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "flightbookingserviceuser20220510143758.azurewebsites.net",
-          "Port": "443"
+          "Host": "localhost",
+          "Port": "57768"
         }
       ],
       //"AuthenticationOptions": {
@@ -503,7 +484,7 @@
         {
           "Name": "Airline API",
           "Version": "v1",
-          "Url": "https://flightbookingserviceairline20220510121025.azurewebsites.net/swagger/v1/swagger.json"
+          "Url": "http://localhost:38221/swagger/v1/swagger.json"
         }
       ]
     },
@@ -513,7 +494,7 @@
         {
           "Name": "User API",
           "Version": "v1",
-          "Url": "https://flightbookingserviceuser20220510143758.azurewebsites.net/swagger/v1/swagger.json"
+          "Url": "http://localhost:57768/swagger/v1/swagger.json"
         }
       ]
     },
@@ -523,7 +504,7 @@
         {
           "Name": "Auth API",
           "Version": "v1",
-          "Url": "https://flightbookingserviceairline20220510121025.azurewebsites.net/swagger/v1/swagger.json"
+          "Url": "http://localhost:14973/swagger/v1/swagger.json"
         }
       ]
     }

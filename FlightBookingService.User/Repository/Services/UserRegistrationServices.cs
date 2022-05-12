@@ -3,6 +3,7 @@ using FlightBookingService.User.DTO.Request;
 using FlightBookingService.User.Models;
 using FlightBookingService.User.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +16,16 @@ namespace FlightBookingService.User.Repository.Services
         #region
 
         private readonly UserServiceContext _userServiceContext;
+        private readonly ILogger<UserRegistrationServices> _logger;
+
 
         #endregion
 
         #region Constructor
 
-        public UserRegistrationServices(UserServiceContext userServiceContext)
+        public UserRegistrationServices(UserServiceContext userServiceContext, ILogger<UserRegistrationServices> logger)
         {
+            _logger = logger;
             _userServiceContext = userServiceContext ?? throw new ArgumentNullException(nameof(userServiceContext));
         }
         #endregion
@@ -55,18 +59,18 @@ namespace FlightBookingService.User.Repository.Services
             return  result;
         }
 
-        public async Task<bool> Login(LoginRequest loginRequest)
+        public int Login(LoginRequest loginRequest)
         {
             if (loginRequest == null)
                 throw new ArgumentNullException(nameof(loginRequest));
 
-            bool result = false;
-            var checkUser = await _userServiceContext.userRegistrations.Where(d => d.UserName == loginRequest.Username
-                                                 && d.Password == loginRequest.Password).FirstOrDefaultAsync();
+            int result = 0;
+            var checkUser =  _userServiceContext.userRegistrations.Where(d => d.UserName == loginRequest.Username
+                                                 && d.Password == loginRequest.Password).FirstOrDefault();
 
             if(checkUser!=null)
             {
-                result = true;
+                result = checkUser.UserId;
             }
 
             return result;
